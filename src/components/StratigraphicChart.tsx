@@ -6,12 +6,20 @@ interface StratigraphicChartProps {
   profile: ParsedSnowProfile;
 }
 
-// Calculate cumulative heights for visualization
-const calculateCumulativeHeights = (samples: SnowSample[]) => {
+// Calculate cumulative heights and midpoints for visualization
+const calculateLayerData = (samples: SnowSample[]) => {
   let cumulative = 0;
   return samples.map(sample => {
+    const prevCumulative = cumulative;
     cumulative += sample.height;
-    return { ...sample, cumulativeHeight: cumulative };
+    // Midpoint of this layer for temperature point placement
+    const midpoint = prevCumulative + sample.height / 2;
+    return { 
+      ...sample, 
+      cumulativeHeight: cumulative,
+      prevCumulativeHeight: prevCumulative,
+      midpoint 
+    };
   });
 };
 
@@ -20,15 +28,15 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
 
   const chartHeight = 400;
   const chartWidth = 500;
-  const margin = { top: 40, right: 60, bottom: 40, left: 80 };
+  const margin = { top: 40, right: 60, bottom: 40, left: 60 };
   const innerWidth = chartWidth - margin.left - margin.right;
   const innerHeight = chartHeight - margin.top - margin.bottom;
 
   // Use max 200cm or total height, whichever is greater
   const maxHeight = Math.max(200, totalHeight);
 
-  const samplesWithCumulative = useMemo(
-    () => calculateCumulativeHeights(samples),
+  const layerData = useMemo(
+    () => calculateLayerData(samples),
     [samples]
   );
 
@@ -37,23 +45,27 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
     return margin.top + (1 - height / maxHeight) * innerHeight;
   };
 
+  // Resistance scale: 120 to 0 (inverted), same width as temperature
   const resistanceScale = (resistance: number) => {
-    const normalized = resistance / RESISTANCE_SCALE.max;
-    return margin.left + normalized * (innerWidth * 0.6);
+    // 120 maps to left edge, 0 maps to right edge
+    const normalized = 1 - (resistance / RESISTANCE_SCALE.max);
+    return margin.left + normalized * innerWidth;
   };
 
+  // Temperature scale: -24 to 0
   const temperatureScale = (temp: number) => {
     const range = TEMPERATURE_SCALE.max - TEMPERATURE_SCALE.min;
     const normalized = (temp - TEMPERATURE_SCALE.min) / range;
     return margin.left + normalized * innerWidth;
   };
 
-  // Temperature line points
-  const temperaturePoints = samplesWithCumulative
+  // Temperature line points - positioned at midpoint of each layer
+  const temperaturePoints = layerData
     .filter(s => s.temperature !== null)
     .map(s => ({
       x: temperatureScale(s.temperature!),
-      y: yScale(s.cumulativeHeight),
+      y: yScale(s.midpoint),
+      temp: s.temperature,
     }));
 
   const temperaturePath = temperaturePoints
@@ -65,6 +77,9 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
   for (let h = 0; h <= maxHeight; h += 20) {
     yTicks.push(h);
   }
+
+  // Resistance axis ticks (120 to 0)
+  const resistanceTicks = [120, 90, 60, 30, 0];
 
   return (
     <div className="w-full h-full flex items-center justify-center bg-chart-bg rounded-lg p-4">
@@ -115,16 +130,16 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
           ))}
         </g>
 
-        {/* X-axis Bottom (Resistance) */}
+        {/* X-axis Bottom (Resistance) - 120 to 0, full width */}
         <g transform={`translate(0, ${chartHeight - margin.bottom})`}>
           <line
             x1={margin.left}
-            x2={margin.left + innerWidth * 0.6}
+            x2={chartWidth - margin.right}
             stroke="hsl(var(--chart-axis))"
             strokeWidth={1}
           />
           <text
-            x={margin.left + (innerWidth * 0.6) / 2}
+            x={margin.left + innerWidth / 2}
             y={30}
             textAnchor="middle"
             fontSize={10}
@@ -133,7 +148,7 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
           >
             Resistencia (N)
           </text>
-          {[0, 30, 60, 90, 120].map(tick => (
+          {resistanceTicks.map(tick => (
             <g key={`r-${tick}`} transform={`translate(${resistanceScale(tick)}, 0)`}>
               <line y1={0} y2={5} stroke="hsl(var(--chart-axis))" strokeWidth={1} />
               <text
@@ -182,11 +197,11 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
         </g>
 
         {/* Resistance bars (stacked from bottom) */}
-        {samplesWithCumulative.map((sample, index) => {
-          const prevHeight = index > 0 ? samplesWithCumulative[index - 1].cumulativeHeight : 0;
-          const y1 = yScale(prevHeight);
+        {layerData.map((sample) => {
+          const y1 = yScale(sample.prevCumulativeHeight);
           const y2 = yScale(sample.cumulativeHeight);
           const barHeight = y1 - y2;
+          // Bar width from left margin to resistance value position
           const barWidth = resistanceScale(sample.resistance) - margin.left;
           const color = IACS_COLORS[sample.grainTypeLabel as GrainTypeLabel] || '#888888';
 
