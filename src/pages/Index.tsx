@@ -1,11 +1,50 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import React from 'react';
+import Header from '@/components/Header';
+import ProfileList from '@/components/ProfileList';
+import ProfileDashboard from '@/components/ProfileDashboard';
+import { useProfiles } from '@/hooks/useProfiles';
 
-const Index = () => {
+const Index: React.FC = () => {
+  const {
+    profiles,
+    selectedProfile,
+    selectedProfileId,
+    setSelectedProfileId,
+    importProfiles,
+    deleteProfile,
+    clearProfiles,
+  } = useProfiles();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background flex flex-col">
+      <Header
+        onImport={importProfiles}
+        onClearAll={clearProfiles}
+        profileCount={profiles.length}
+      />
+
+      <div className="flex-1 flex overflow-hidden">
+        {/* Sidebar - Profile List */}
+        <aside className="w-80 border-r border-border bg-sidebar flex-shrink-0 flex flex-col">
+          <div className="px-4 py-3 border-b border-border">
+            <h2 className="text-sm font-semibold text-sidebar-foreground">
+              Perfiles Importados
+            </h2>
+          </div>
+          <div className="flex-1 overflow-hidden">
+            <ProfileList
+              profiles={profiles}
+              selectedProfileId={selectedProfileId}
+              onSelect={setSelectedProfileId}
+              onDelete={deleteProfile}
+            />
+          </div>
+        </aside>
+
+        {/* Main Content - Dashboard */}
+        <main className="flex-1 overflow-hidden bg-background">
+          <ProfileDashboard profile={selectedProfile} />
+        </main>
       </div>
     </div>
   );

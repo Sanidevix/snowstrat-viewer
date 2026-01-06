@@ -1,0 +1,114 @@
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      -3.630529646776771,
+      40.37424026357894,
+      0
+    ]
+  },
+  "properties": {
+    "name": "Test",
+    "observer": "Manolo",
+    "observations": "Muy frias",
+    "timestamp": "2026-01-06T17:29:04.620Z",
+    "createdAt": "2026-01-06T17:32:16.785Z",
+    "updatedAt": "2026-01-06T17:32:16.785Z",
+    "totalHeight": 131,
+    "sampleCount": 7,
+    "samples": [
+      {
+        "id": 1,
+        "number": 1,
+        "height": 1,
+        "temperature": -1,
+        "resistance": 100,
+        "resistanceLabel": "K",
+        "grainType": 1,
+        "grainTypeLabel": "PP",
+        "diameter": null,
+        "humidity": null,
+        "timestamp": "2026-01-06T17:29:11.403Z"
+      },
+      {
+        "id": 2,
+        "number": 2,
+        "height": 10,
+        "temperature": null,
+        "resistance": 100,
+        "resistanceLabel": "K",
+        "grainType": 2,
+        "grainTypeLabel": "DF",
+        "diameter": null,
+        "humidity": null,
+        "timestamp": "2026-01-06T17:29:20.755Z"
+      },
+      {
+        "id": 3,
+        "number": 3,
+        "height": 20,
+        "temperature": -4.3,
+        "resistance": 100,
+        "resistanceLabel": "K",
+        "grainType": 2,
+        "grainTypeLabel": "DF",
+        "diameter": 1,
+        "humidity": "M",
+        "timestamp": "2026-01-06T17:30:44.923Z"
+      },
+      {
+        "id": 4,
+        "number": 4,
+        "height": 25,
+        "temperature": -2,
+        "resistance": 120,
+        "resistanceLabel": "I",
+        "grainType": 8,
+        "grainTypeLabel": "IF",
+        "diameter": null,
+        "humidity": "D",
+        "timestamp": "2026-01-06T17:30:56.699Z"
+      },
+      {
+        "id": 5,
+        "number": 5,
+        "height": 50,
+        "temperature": -2,
+        "resistance": 50,
+        "resistanceLabel": "P",
+        "grainType": 8,
+        "grainTypeLabel": "IF",
+        "diameter": 1,
+        "humidity": "D",
+        "timestamp": "2026-01-06T17:31:15.660Z"
+      },
+      {
+        "id": 6,
+        "number": 6,
+        "height": 20,
+        "temperature": -4,
+        "resistance": 50,
+        "resistanceLabel": "P",
+        "grainType": 1,
+        "grainTypeLabel": "PP",
+        "diameter": 1,
+        "humidity": "M",
+        "timestamp": "2026-01-06T17:31:32.660Z"
+      },
+      {
+        "id": 7,
+        "number": 7,
+        "height": 5,
+        "temperature": -15,
+        "resistance": 100,
+        "resistanceLabel": "K",
+        "grainType": 9,
+        "grainTypeLabel": "GP",
+        "diameter": null,
+        "humidity": "M",
+        "timestamp": "2026-01-06T17:32:03.355Z"
+      }
+    ]
+  }
+}
