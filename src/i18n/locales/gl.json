@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "SnowStrat Viewer",
+    "subtitle": "Visor de Perfís Nivolóxicos",
+    "importButton": "Importar GeoJSON",
+    "profiles": "perfil",
+    "profilesPlural": "perfís",
+    "deleteAllTitle": "Eliminar todos os perfís?",
+    "deleteAllDescription": "Esta acción eliminará todos os perfís importados. Esta acción non se pode desfacer.",
+    "cancel": "Cancelar",
+    "deleteAll": "Eliminar todos"
+  },
+  "sidebar": {
+    "importedProfiles": "Perfís Importados"
+  },
+  "profileList": {
+    "noProfiles": "Non hai perfís importados",
+    "useImportButton": "Usa o botón \"Importar GeoJSON\" para comezar",
+    "height": "Altura",
+    "samples": "Mostras",
+    "altitude": "Altitude"
+  },
+  "dashboard": {
+    "selectProfile": "Selecciona un perfil",
+    "selectProfileDescription": "Importa ficheiros GeoJSON de perfís nivolóxicos e selecciona un da lista para visualizar os seus datos."
+  },
+  "chart": {
+    "zoom": "Zoom",
+    "height": "Altura (cm)",
+    "resistance": "Resistencia (N)",
+    "temperature": "Temperatura (°C)"
+  },
+  "legend": {
+    "title": "Lenda IACS - Tipos de Gran"
+  },
+  "metadata": {
+    "title": "Metadatos do Perfil",
+    "name": "Nome",
+    "observer": "Observador",
+    "dateTime": "Data e Hora",
+    "coordinates": "Coordenadas",
+    "dms": "GMS",
+    "decimal": "Decimal",
+    "altitude": "Altitude",
+    "totalHeight": "Altura Total",
+    "samples": "Mostras",
+    "observations": "Observacións"
+  },
+  "table": {
+    "title": "Datos das Mostras",
+    "number": "#",
+    "height": "Altura (cm)",
+    "cumulative": "Acum. (cm)",
+    "temperature": "Temp. (°C)",
+    "resistance": "Resist.",
+    "grainType": "Tipo Gran",
+    "diameter": "Ø (mm)",
+    "humidity": "Humidade",
+    "time": "Hora"
+  },
+  "toast": {
+    "importedTitle": "Perfís importados",
+    "importedDescription": "Importáronse {{count}} perfil(es) correctamente.",
+    "noNewTitle": "Sen perfís novos",
+    "noNewDescription": "Non se atoparon perfís válidos ou xa estaban importados."
+  },
+  "languages": {
+    "es": "Español",
+    "gl": "Galego",
+    "ast": "Asturianu",
+    "eu": "Euskara",
+    "ca": "Català",
+    "oc": "Aranés",
+    "ad": "Andorrà",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

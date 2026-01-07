@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "SnowStrat Viewer",
+    "subtitle": "Schneeprofil-Betrachter",
+    "importButton": "GeoJSON importieren",
+    "profiles": "Profil",
+    "profilesPlural": "Profile",
+    "deleteAllTitle": "Alle Profile löschen?",
+    "deleteAllDescription": "Diese Aktion löscht alle importierten Profile. Diese Aktion kann nicht rückgängig gemacht werden.",
+    "cancel": "Abbrechen",
+    "deleteAll": "Alle löschen"
+  },
+  "sidebar": {
+    "importedProfiles": "Importierte Profile"
+  },
+  "profileList": {
+    "noProfiles": "Keine Profile importiert",
+    "useImportButton": "Verwenden Sie die Schaltfläche \"GeoJSON importieren\" um zu beginnen",
+    "height": "Höhe",
+    "samples": "Proben",
+    "altitude": "Höhenlage"
+  },
+  "dashboard": {
+    "selectProfile": "Profil auswählen",
+    "selectProfileDescription": "Importieren Sie GeoJSON-Dateien von Schneeprofilen und wählen Sie eines aus der Liste aus, um seine Daten anzuzeigen."
+  },
+  "chart": {
+    "zoom": "Zoom",
+    "height": "Höhe (cm)",
+    "resistance": "Widerstand (N)",
+    "temperature": "Temperatur (°C)"
+  },
+  "legend": {
+    "title": "IACS-Legende - Korntypen"
+  },
+  "metadata": {
+    "title": "Profil-Metadaten",
+    "name": "Name",
+    "observer": "Beobachter",
+    "dateTime": "Datum und Uhrzeit",
+    "coordinates": "Koordinaten",
+    "dms": "GMS",
+    "decimal": "Dezimal",
+    "altitude": "Höhenlage",
+    "totalHeight": "Gesamthöhe",
+    "samples": "Proben",
+    "observations": "Beobachtungen"
+  },
+  "table": {
+    "title": "Probendaten",
+    "number": "#",
+    "height": "Höhe (cm)",
+    "cumulative": "Kum. (cm)",
+    "temperature": "Temp. (°C)",
+    "resistance": "Widerst.",
+    "grainType": "Korntyp",
+    "diameter": "Ø (mm)",
+    "humidity": "Feuchtigkeit",
+    "time": "Zeit"
+  },
+  "toast": {
+    "importedTitle": "Profile importiert",
+    "importedDescription": "{{count}} Profil(e) wurden erfolgreich importiert.",
+    "noNewTitle": "Keine neuen Profile",
+    "noNewDescription": "Keine gültigen Profile gefunden oder bereits importiert."
+  },
+  "languages": {
+    "es": "Español",
+    "gl": "Galego",
+    "ast": "Asturianu",
+    "eu": "Euskara",
+    "ca": "Català",
+    "oc": "Aranés",
+    "ad": "Andorrà",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

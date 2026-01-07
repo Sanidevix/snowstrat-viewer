@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "SnowStrat Viewer",
+    "subtitle": "Visualiseur de Profils Nivologiques",
+    "importButton": "Importer GeoJSON",
+    "profiles": "profil",
+    "profilesPlural": "profils",
+    "deleteAllTitle": "Supprimer tous les profils ?",
+    "deleteAllDescription": "Cette action supprimera tous les profils importés. Cette action ne peut pas être annulée.",
+    "cancel": "Annuler",
+    "deleteAll": "Tout supprimer"
+  },
+  "sidebar": {
+    "importedProfiles": "Profils Importés"
+  },
+  "profileList": {
+    "noProfiles": "Aucun profil importé",
+    "useImportButton": "Utilisez le bouton \"Importer GeoJSON\" pour commencer",
+    "height": "Hauteur",
+    "samples": "Échantillons",
+    "altitude": "Altitude"
+  },
+  "dashboard": {
+    "selectProfile": "Sélectionnez un profil",
+    "selectProfileDescription": "Importez des fichiers GeoJSON de profils nivologiques et sélectionnez-en un dans la liste pour visualiser ses données."
+  },
+  "chart": {
+    "zoom": "Zoom",
+    "height": "Hauteur (cm)",
+    "resistance": "Résistance (N)",
+    "temperature": "Température (°C)"
+  },
+  "legend": {
+    "title": "Légende IACS - Types de Grain"
+  },
+  "metadata": {
+    "title": "Métadonnées du Profil",
+    "name": "Nom",
+    "observer": "Observateur",
+    "dateTime": "Date et Heure",
+    "coordinates": "Coordonnées",
+    "dms": "DMS",
+    "decimal": "Décimal",
+    "altitude": "Altitude",
+    "totalHeight": "Hauteur Totale",
+    "samples": "Échantillons",
+    "observations": "Observations"
+  },
+  "table": {
+    "title": "Données des Échantillons",
+    "number": "#",
+    "height": "Hauteur (cm)",
+    "cumulative": "Cumul. (cm)",
+    "temperature": "Temp. (°C)",
+    "resistance": "Résist.",
+    "grainType": "Type Grain",
+    "diameter": "Ø (mm)",
+    "humidity": "Humidité",
+    "time": "Heure"
+  },
+  "toast": {
+    "importedTitle": "Profils importés",
+    "importedDescription": "{{count}} profil(s) ont été importés avec succès.",
+    "noNewTitle": "Pas de nouveaux profils",
+    "noNewDescription": "Aucun profil valide trouvé ou déjà importés."
+  },
+  "languages": {
+    "es": "Español",
+    "gl": "Galego",
+    "ast": "Asturianu",
+    "eu": "Euskara",
+    "ca": "Català",
+    "oc": "Aranés",
+    "ad": "Andorrà",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

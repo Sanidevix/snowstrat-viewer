@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "SnowStrat Viewer",
+    "subtitle": "Visor de Perfiles Nivolóxicos",
+    "importButton": "Importar GeoJSON",
+    "profiles": "perfil",
+    "profilesPlural": "perfiles",
+    "deleteAllTitle": "¿Desaniciar tolos perfiles?",
+    "deleteAllDescription": "Esta aición desaniciará tolos perfiles importaos. Esta aición nun se pue desfacer.",
+    "cancel": "Encaboxar",
+    "deleteAll": "Desaniciar toos"
+  },
+  "sidebar": {
+    "importedProfiles": "Perfiles Importaos"
+  },
+  "profileList": {
+    "noProfiles": "Nun hai perfiles importaos",
+    "useImportButton": "Usa'l botón \"Importar GeoJSON\" pa empezar",
+    "height": "Altor",
+    "samples": "Muestres",
+    "altitude": "Altitú"
+  },
+  "dashboard": {
+    "selectProfile": "Seleiciona un perfil",
+    "selectProfileDescription": "Importa ficheros GeoJSON de perfiles nivolóxicos y seleiciona ún de la llista pa ver los sos datos."
+  },
+  "chart": {
+    "zoom": "Zoom",
+    "height": "Altor (cm)",
+    "resistance": "Resistencia (N)",
+    "temperature": "Temperatura (°C)"
+  },
+  "legend": {
+    "title": "Lleenda IACS - Tipos de Granu"
+  },
+  "metadata": {
+    "title": "Metadatos del Perfil",
+    "name": "Nome",
+    "observer": "Observador",
+    "dateTime": "Data y Hora",
+    "coordinates": "Coordenaes",
+    "dms": "GMS",
+    "decimal": "Decimal",
+    "altitude": "Altitú",
+    "totalHeight": "Altor Total",
+    "samples": "Muestres",
+    "observations": "Observaciones"
+  },
+  "table": {
+    "title": "Datos de les Muestres",
+    "number": "#",
+    "height": "Altor (cm)",
+    "cumulative": "Acum. (cm)",
+    "temperature": "Temp. (°C)",
+    "resistance": "Resist.",
+    "grainType": "Tipu Granu",
+    "diameter": "Ø (mm)",
+    "humidity": "Mugor",
+    "time": "Hora"
+  },
+  "toast": {
+    "importedTitle": "Perfiles importaos",
+    "importedDescription": "Importáronse {{count}} perfil(es) correutamente.",
+    "noNewTitle": "Ensin perfiles nuevos",
+    "noNewDescription": "Nun s'atoparon perfiles válidos o yá taben importaos."
+  },
+  "languages": {
+    "es": "Español",
+    "gl": "Galego",
+    "ast": "Asturianu",
+    "eu": "Euskara",
+    "ca": "Català",
+    "oc": "Aranés",
+    "ad": "Andorrà",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "SnowStrat Viewer",
+    "subtitle": "Visualizador de Perfiles Nivológicos",
+    "importButton": "Importar GeoJSON",
+    "profiles": "perfil",
+    "profilesPlural": "perfiles",
+    "deleteAllTitle": "¿Eliminar todos los perfiles?",
+    "deleteAllDescription": "Esta acción eliminará todos los perfiles importados. Esta acción no se puede deshacer.",
+    "cancel": "Cancelar",
+    "deleteAll": "Eliminar todos"
+  },
+  "sidebar": {
+    "importedProfiles": "Perfiles Importados"
+  },
+  "profileList": {
+    "noProfiles": "No hay perfiles importados",
+    "useImportButton": "Usa el botón \"Importar GeoJSON\" para comenzar",
+    "height": "Altura",
+    "samples": "Muestras",
+    "altitude": "Altitud"
+  },
+  "dashboard": {
+    "selectProfile": "Selecciona un perfil",
+    "selectProfileDescription": "Importa archivos GeoJSON de perfiles nivológicos y selecciona uno de la lista para visualizar sus datos."
+  },
+  "chart": {
+    "zoom": "Zoom",
+    "height": "Altura (cm)",
+    "resistance": "Resistencia (N)",
+    "temperature": "Temperatura (°C)"
+  },
+  "legend": {
+    "title": "Leyenda IACS - Tipos de Grano"
+  },
+  "metadata": {
+    "title": "Metadatos del Perfil",
+    "name": "Nombre",
+    "observer": "Observador",
+    "dateTime": "Fecha y Hora",
+    "coordinates": "Coordenadas",
+    "dms": "GMS",
+    "decimal": "Decimal",
+    "altitude": "Altitud",
+    "totalHeight": "Altura Total",
+    "samples": "Muestras",
+    "observations": "Observaciones"
+  },
+  "table": {
+    "title": "Datos de las Muestras",
+    "number": "#",
+    "height": "Altura (cm)",
+    "cumulative": "Acum. (cm)",
+    "temperature": "Temp. (°C)",
+    "resistance": "Resist.",
+    "grainType": "Tipo Grano",
+    "diameter": "Ø (mm)",
+    "humidity": "Humedad",
+    "time": "Hora"
+  },
+  "toast": {
+    "importedTitle": "Perfiles importados",
+    "importedDescription": "Se han importado {{count}} perfil(es) correctamente.",
+    "noNewTitle": "Sin perfiles nuevos",
+    "noNewDescription": "No se encontraron perfiles válidos o ya estaban importados."
+  },
+  "languages": {
+    "es": "Español",
+    "gl": "Galego",
+    "ast": "Asturianu",
+    "eu": "Euskara",
+    "ca": "Català",
+    "oc": "Aranés",
+    "ad": "Andorrà",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

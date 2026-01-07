@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "SnowStrat Viewer",
+    "subtitle": "Snow Profile Viewer",
+    "importButton": "Import GeoJSON",
+    "profiles": "profile",
+    "profilesPlural": "profiles",
+    "deleteAllTitle": "Delete all profiles?",
+    "deleteAllDescription": "This action will delete all imported profiles. This action cannot be undone.",
+    "cancel": "Cancel",
+    "deleteAll": "Delete all"
+  },
+  "sidebar": {
+    "importedProfiles": "Imported Profiles"
+  },
+  "profileList": {
+    "noProfiles": "No profiles imported",
+    "useImportButton": "Use the \"Import GeoJSON\" button to start",
+    "height": "Height",
+    "samples": "Samples",
+    "altitude": "Altitude"
+  },
+  "dashboard": {
+    "selectProfile": "Select a profile",
+    "selectProfileDescription": "Import GeoJSON files of snow profiles and select one from the list to view its data."
+  },
+  "chart": {
+    "zoom": "Zoom",
+    "height": "Height (cm)",
+    "resistance": "Resistance (N)",
+    "temperature": "Temperature (°C)"
+  },
+  "legend": {
+    "title": "IACS Legend - Grain Types"
+  },
+  "metadata": {
+    "title": "Profile Metadata",
+    "name": "Name",
+    "observer": "Observer",
+    "dateTime": "Date and Time",
+    "coordinates": "Coordinates",
+    "dms": "DMS",
+    "decimal": "Decimal",
+    "altitude": "Altitude",
+    "totalHeight": "Total Height",
+    "samples": "Samples",
+    "observations": "Observations"
+  },
+  "table": {
+    "title": "Sample Data",
+    "number": "#",
+    "height": "Height (cm)",
+    "cumulative": "Cumul. (cm)",
+    "temperature": "Temp. (°C)",
+    "resistance": "Resist.",
+    "grainType": "Grain Type",
+    "diameter": "Ø (mm)",
+    "humidity": "Humidity",
+    "time": "Time"
+  },
+  "toast": {
+    "importedTitle": "Profiles imported",
+    "importedDescription": "{{count}} profile(s) have been imported successfully.",
+    "noNewTitle": "No new profiles",
+    "noNewDescription": "No valid profiles found or they were already imported."
+  },
+  "languages": {
+    "es": "Español",
+    "gl": "Galego",
+    "ast": "Asturianu",
+    "eu": "Euskara",
+    "ca": "Català",
+    "oc": "Aranés",
+    "ad": "Andorrà",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

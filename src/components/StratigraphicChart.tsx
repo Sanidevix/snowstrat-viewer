@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ParsedSnowProfile, SnowSample, GrainTypeLabel } from '@/types/snowProfile';
 import { IACS_COLORS, RESISTANCE_SCALE, TEMPERATURE_SCALE } from '@/constants/iacs';
 import { ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
@@ -26,6 +27,7 @@ const calculateLayerData = (samples: SnowSample[]) => {
 };
 
 const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
+  const { t } = useTranslation();
   const { samples, totalHeight } = profile.properties;
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -140,7 +142,7 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
       {/* Zoom controls */}
       <div className="flex items-center justify-end gap-1 p-2 border-b border-border bg-muted/30">
         <span className="text-xs text-muted-foreground mr-2">
-          Zoom: {Math.round(scale * 100)}%
+          {t('chart.zoom')}: {Math.round(scale * 100)}%
         </span>
         <Button
           variant="outline"
@@ -216,7 +218,7 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
               fill="hsl(var(--chart-axis))"
               className="font-sans"
             >
-              Altura (cm)
+              {t('chart.height')}
             </text>
             {yTicks.map(tick => (
               <g key={`y-${tick}`} transform={`translate(0, ${yScale(tick)})`}>
@@ -250,7 +252,7 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
               fill="hsl(var(--chart-axis))"
               className="font-sans"
             >
-              Resistencia (N)
+              {t('chart.resistance')}
             </text>
             {resistanceTicks.map(tick => (
               <g key={`r-${tick}`} transform={`translate(${resistanceScale(tick)}, 0)`}>
@@ -283,7 +285,7 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
               fill="hsl(var(--chart-temp-line))"
               className="font-sans"
             >
-              Temperatura (°C)
+              {t('chart.temperature')}
             </text>
             {TEMPERATURE_SCALE.ticks.map(tick => (
               <g key={`t-${tick}`} transform={`translate(${temperatureScale(tick)}, 0)`}>

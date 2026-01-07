@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { MapPin, Calendar, User, Trash2 } from 'lucide-react';
 import { ParsedSnowProfile } from '@/types/snowProfile';
 import { formatDate } from '@/utils/coordinates';
@@ -19,15 +20,17 @@ const ProfileList: React.FC<ProfileListProps> = ({
   onSelect,
   onDelete,
 }) => {
+  const { t } = useTranslation();
+
   if (profiles.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-full py-12 px-4 text-center">
         <MapPin className="h-12 w-12 text-muted-foreground/50 mb-4" />
         <p className="text-muted-foreground text-sm">
-          No hay perfiles importados
+          {t('profileList.noProfiles')}
         </p>
         <p className="text-muted-foreground/70 text-xs mt-1">
-          Usa el botón "Importar GeoJSON" para comenzar
+          {t('profileList.useImportButton')}
         </p>
       </div>
     );
@@ -82,16 +85,16 @@ const ProfileList: React.FC<ProfileListProps> = ({
 
               <div className="flex gap-3 mt-2 pt-2 border-t border-border/50 text-xs">
                 <div className="flex flex-col">
-                  <span className="text-muted-foreground">Altura</span>
+                  <span className="text-muted-foreground">{t('profileList.height')}</span>
                   <span className="font-mono font-medium text-foreground">{totalHeight} cm</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-muted-foreground">Muestras</span>
+                  <span className="text-muted-foreground">{t('profileList.samples')}</span>
                   <span className="font-mono font-medium text-foreground">{sampleCount}</span>
                 </div>
                 {altitude > 0 && (
                   <div className="flex flex-col">
-                    <span className="text-muted-foreground">Altitud</span>
+                    <span className="text-muted-foreground">{t('profileList.altitude')}</span>
                     <span className="font-mono font-medium text-foreground">{Math.round(altitude)} m</span>
                   </div>
                 )}
