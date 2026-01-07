@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "SnowStrat Viewer",
+    "subtitle": "Visualizzatore di Profili Nivologici",
+    "importButton": "Importa GeoJSON",
+    "profiles": "profilo",
+    "profilesPlural": "profili",
+    "deleteAllTitle": "Eliminare tutti i profili?",
+    "deleteAllDescription": "Questa azione eliminerà tutti i profili importati. Questa azione non può essere annullata.",
+    "cancel": "Annulla",
+    "deleteAll": "Elimina tutti"
+  },
+  "sidebar": {
+    "importedProfiles": "Profili Importati"
+  },
+  "profileList": {
+    "noProfiles": "Nessun profilo importato",
+    "useImportButton": "Usa il pulsante \"Importa GeoJSON\" per iniziare",
+    "height": "Altezza",
+    "samples": "Campioni",
+    "altitude": "Altitudine"
+  },
+  "dashboard": {
+    "selectProfile": "Seleziona un profilo",
+    "selectProfileDescription": "Importa file GeoJSON di profili nivologici e selezionane uno dalla lista per visualizzare i suoi dati."
+  },
+  "chart": {
+    "zoom": "Zoom",
+    "height": "Altezza (cm)",
+    "resistance": "Resistenza (N)",
+    "temperature": "Temperatura (°C)"
+  },
+  "legend": {
+    "title": "Legenda IACS - Tipi di Grano"
+  },
+  "metadata": {
+    "title": "Metadati del Profilo",
+    "name": "Nome",
+    "observer": "Osservatore",
+    "dateTime": "Data e Ora",
+    "coordinates": "Coordinate",
+    "dms": "GMS",
+    "decimal": "Decimale",
+    "altitude": "Altitudine",
+    "totalHeight": "Altezza Totale",
+    "samples": "Campioni",
+    "observations": "Osservazioni"
+  },
+  "table": {
+    "title": "Dati dei Campioni",
+    "number": "#",
+    "height": "Altezza (cm)",
+    "cumulative": "Cumul. (cm)",
+    "temperature": "Temp. (°C)",
+    "resistance": "Resist.",
+    "grainType": "Tipo Grano",
+    "diameter": "Ø (mm)",
+    "humidity": "Umidità",
+    "time": "Ora"
+  },
+  "toast": {
+    "importedTitle": "Profili importati",
+    "importedDescription": "{{count}} profilo/i importato/i correttamente.",
+    "noNewTitle": "Nessun nuovo profilo",
+    "noNewDescription": "Nessun profilo valido trovato o già importati."
+  },
+  "languages": {
+    "es": "Español",
+    "gl": "Galego",
+    "ast": "Asturianu",
+    "eu": "Euskara",
+    "ca": "Català",
+    "oc": "Aranés",
+    "ad": "Andorrà",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

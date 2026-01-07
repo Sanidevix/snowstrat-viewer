@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "SnowStrat Viewer",
+    "subtitle": "Visualizator de Perfils Nivològics",
+    "importButton": "Importar GeoJSON",
+    "profiles": "perfil",
+    "profilesPlural": "perfils",
+    "deleteAllTitle": "Suprimir toti es perfils?",
+    "deleteAllDescription": "Aguesta accion suprimirà toti es perfils importats. Aguesta accion non se pòt desfar.",
+    "cancel": "Anullar",
+    "deleteAll": "Suprimir toti"
+  },
+  "sidebar": {
+    "importedProfiles": "Perfils Importats"
+  },
+  "profileList": {
+    "noProfiles": "Non i a perfils importats",
+    "useImportButton": "Emplegatz eth boton \"Importar GeoJSON\" tà començar",
+    "height": "Auçada",
+    "samples": "Mostres",
+    "altitude": "Altitud"
+  },
+  "dashboard": {
+    "selectProfile": "Seleccionar un perfil",
+    "selectProfileDescription": "Importatz archius GeoJSON de perfils nivològics e seleccionatz-ne un dera lista tà visualizar es sòns donades."
+  },
+  "chart": {
+    "zoom": "Zoom",
+    "height": "Auçada (cm)",
+    "resistance": "Resisténcia (N)",
+    "temperature": "Temperatura (°C)"
+  },
+  "legend": {
+    "title": "Legenda IACS - Tipes de Gran"
+  },
+  "metadata": {
+    "title": "Metadonades deth Perfil",
+    "name": "Òm",
+    "observer": "Observator",
+    "dateTime": "Data e Ora",
+    "coordinates": "Coordenades",
+    "dms": "GMS",
+    "decimal": "Decimal",
+    "altitude": "Altitud",
+    "totalHeight": "Auçada Totau",
+    "samples": "Mostres",
+    "observations": "Observacions"
+  },
+  "table": {
+    "title": "Donades des Mostres",
+    "number": "#",
+    "height": "Auçada (cm)",
+    "cumulative": "Acum. (cm)",
+    "temperature": "Temp. (°C)",
+    "resistance": "Resist.",
+    "grainType": "Tipe Gran",
+    "diameter": "Ø (mm)",
+    "humidity": "Umiditat",
+    "time": "Ora"
+  },
+  "toast": {
+    "importedTitle": "Perfils importats",
+    "importedDescription": "S'an importat {{count}} perfil(s) corrèctament.",
+    "noNewTitle": "Sense perfils naui",
+    "noNewDescription": "Non s'an trobat perfils valids o ja èren importats."
+  },
+  "languages": {
+    "es": "Español",
+    "gl": "Galego",
+    "ast": "Asturianu",
+    "eu": "Euskara",
+    "ca": "Català",
+    "oc": "Aranés",
+    "ad": "Andorrà",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

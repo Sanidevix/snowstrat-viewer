@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "SnowStrat Viewer",
+    "subtitle": "Elur Profilen Ikustailea",
+    "importButton": "GeoJSON Inportatu",
+    "profiles": "profila",
+    "profilesPlural": "profil",
+    "deleteAllTitle": "Profil guztiak ezabatu?",
+    "deleteAllDescription": "Ekintza honek inportatutako profil guztiak ezabatuko ditu. Ekintza hau ezin da desegin.",
+    "cancel": "Ezeztatu",
+    "deleteAll": "Guztiak ezabatu"
+  },
+  "sidebar": {
+    "importedProfiles": "Inportatutako Profilak"
+  },
+  "profileList": {
+    "noProfiles": "Ez dago inportatutako profilik",
+    "useImportButton": "Erabili \"GeoJSON Inportatu\" botoia hasteko",
+    "height": "Altuera",
+    "samples": "Laginak",
+    "altitude": "Altitudea"
+  },
+  "dashboard": {
+    "selectProfile": "Hautatu profil bat",
+    "selectProfileDescription": "Inportatu elur profilen GeoJSON fitxategiak eta hautatu bat zerrendatik bere datuak ikusteko."
+  },
+  "chart": {
+    "zoom": "Zoom",
+    "height": "Altuera (cm)",
+    "resistance": "Erresistentzia (N)",
+    "temperature": "Tenperatura (°C)"
+  },
+  "legend": {
+    "title": "IACS Legenda - Ale Motak"
+  },
+  "metadata": {
+    "title": "Profilaren Metadatuak",
+    "name": "Izena",
+    "observer": "Behatzailea",
+    "dateTime": "Data eta Ordua",
+    "coordinates": "Koordenatuak",
+    "dms": "GMS",
+    "decimal": "Dezimala",
+    "altitude": "Altitudea",
+    "totalHeight": "Altuera Totala",
+    "samples": "Laginak",
+    "observations": "Oharrak"
+  },
+  "table": {
+    "title": "Laginen Datuak",
+    "number": "#",
+    "height": "Altuera (cm)",
+    "cumulative": "Metat. (cm)",
+    "temperature": "Tenp. (°C)",
+    "resistance": "Erres.",
+    "grainType": "Ale Mota",
+    "diameter": "Ø (mm)",
+    "humidity": "Hezetasuna",
+    "time": "Ordua"
+  },
+  "toast": {
+    "importedTitle": "Profilak inportatuta",
+    "importedDescription": "{{count}} profil zuzen inportatu dira.",
+    "noNewTitle": "Profil berririk ez",
+    "noNewDescription": "Ez dira baliozko profilik aurkitu edo dagoeneko inportatuta zeuden."
+  },
+  "languages": {
+    "es": "Español",
+    "gl": "Galego",
+    "ast": "Asturianu",
+    "eu": "Euskara",
+    "ca": "Català",
+    "oc": "Aranés",
+    "ad": "Andorrà",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

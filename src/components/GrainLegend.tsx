@@ -1,15 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { GrainTypeLabel } from '@/types/snowProfile';
 import { IACS_COLORS, GRAIN_TYPE_INFO } from '@/constants/iacs';
 
 const GrainLegend: React.FC = () => {
+  const { t } = useTranslation();
   const grainTypes = Object.keys(IACS_COLORS) as GrainTypeLabel[];
 
   return (
     <div className="bg-card rounded-lg border border-border p-4">
       <h3 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
         <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-        Leyenda IACS - Tipos de Grano
+        {t('legend.title')}
       </h3>
 
       <div className="grid grid-cols-3 gap-2">

@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Upload, Mountain, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -13,6 +14,7 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { toast } from '@/hooks/use-toast';
+import LanguageSelector from '@/components/LanguageSelector';
 
 interface HeaderProps {
   onImport: (files: FileList) => Promise<number>;
@@ -21,6 +23,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount }) => {
+  const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,13 +34,13 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount }) =
     
     if (count > 0) {
       toast({
-        title: 'Perfiles importados',
-        description: `Se han importado ${count} perfil(es) correctamente.`,
+        title: t('toast.importedTitle'),
+        description: t('toast.importedDescription', { count }),
       });
     } else {
       toast({
-        title: 'Sin perfiles nuevos',
-        description: 'No se encontraron perfiles válidos o ya estaban importados.',
+        title: t('toast.noNewTitle'),
+        description: t('toast.noNewDescription'),
         variant: 'destructive',
       });
     }
@@ -58,10 +61,10 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount }) =
           </div>
           <div className="flex flex-col">
             <h1 className="text-lg font-semibold leading-tight text-foreground">
-              SnowStrat Viewer
+              {t('header.title')}
             </h1>
             <p className="text-xs text-muted-foreground">
-              Visualizador de Perfiles Nivológicos
+              {t('header.subtitle')}
             </p>
           </div>
         </div>
@@ -70,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount }) =
         <div className="flex items-center gap-3">
           {profileCount > 0 && (
             <span className="text-sm text-muted-foreground">
-              {profileCount} perfil{profileCount !== 1 ? 'es' : ''}
+              {profileCount} {profileCount !== 1 ? t('header.profilesPlural') : t('header.profiles')}
             </span>
           )}
 
@@ -88,8 +91,10 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount }) =
             className="gap-2"
           >
             <Upload className="h-4 w-4" />
-            Importar GeoJSON
+            {t('header.importButton')}
           </Button>
+
+          <LanguageSelector />
 
           {profileCount > 0 && (
             <AlertDialog>
@@ -100,15 +105,15 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount }) =
               </AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  <AlertDialogTitle>¿Eliminar todos los perfiles?</AlertDialogTitle>
+                  <AlertDialogTitle>{t('header.deleteAllTitle')}</AlertDialogTitle>
                   <AlertDialogDescription>
-                    Esta acción eliminará todos los perfiles importados. Esta acción no se puede deshacer.
+                    {t('header.deleteAllDescription')}
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
-                  <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                  <AlertDialogCancel>{t('header.cancel')}</AlertDialogCancel>
                   <AlertDialogAction onClick={onClearAll} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
-                    Eliminar todos
+                    {t('header.deleteAll')}
                   </AlertDialogAction>
                 </AlertDialogFooter>
               </AlertDialogContent>

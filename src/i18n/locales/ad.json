@@ -1,0 +1,80 @@
+{
+  "header": {
+    "title": "SnowStrat Viewer",
+    "subtitle": "Visualitzador de Perfils Nivològics",
+    "importButton": "Importar GeoJSON",
+    "profiles": "perfil",
+    "profilesPlural": "perfils",
+    "deleteAllTitle": "Eliminar tots els perfils?",
+    "deleteAllDescription": "Aquesta acció eliminarà tots els perfils importats. Aquesta acció no es pot desfer.",
+    "cancel": "Cancel·lar",
+    "deleteAll": "Eliminar tots"
+  },
+  "sidebar": {
+    "importedProfiles": "Perfils Importats"
+  },
+  "profileList": {
+    "noProfiles": "No hi ha perfils importats",
+    "useImportButton": "Feu servir el botó \"Importar GeoJSON\" per començar",
+    "height": "Alçària",
+    "samples": "Mostres",
+    "altitude": "Altitud"
+  },
+  "dashboard": {
+    "selectProfile": "Seleccioneu un perfil",
+    "selectProfileDescription": "Importeu fitxers GeoJSON de perfils nivològics i seleccioneu-ne un de la llista per visualitzar les seves dades."
+  },
+  "chart": {
+    "zoom": "Zoom",
+    "height": "Alçària (cm)",
+    "resistance": "Resistència (N)",
+    "temperature": "Temperatura (°C)"
+  },
+  "legend": {
+    "title": "Llegenda IACS - Tipus de Gra"
+  },
+  "metadata": {
+    "title": "Metadades del Perfil",
+    "name": "Nom",
+    "observer": "Observador",
+    "dateTime": "Data i Hora",
+    "coordinates": "Coordenades",
+    "dms": "GMS",
+    "decimal": "Decimal",
+    "altitude": "Altitud",
+    "totalHeight": "Alçària Total",
+    "samples": "Mostres",
+    "observations": "Observacions"
+  },
+  "table": {
+    "title": "Dades de les Mostres",
+    "number": "#",
+    "height": "Alçària (cm)",
+    "cumulative": "Acum. (cm)",
+    "temperature": "Temp. (°C)",
+    "resistance": "Resist.",
+    "grainType": "Tipus Gra",
+    "diameter": "Ø (mm)",
+    "humidity": "Humitat",
+    "time": "Hora"
+  },
+  "toast": {
+    "importedTitle": "Perfils importats",
+    "importedDescription": "S'han importat {{count}} perfil(s) correctament.",
+    "noNewTitle": "Sense perfils nous",
+    "noNewDescription": "No s'han trobat perfils vàlids o ja estaven importats."
+  },
+  "languages": {
+    "es": "Español",
+    "gl": "Galego",
+    "ast": "Asturianu",
+    "eu": "Euskara",
+    "ca": "Català",
+    "oc": "Aranés",
+    "ad": "Andorrà",
+    "en": "English",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

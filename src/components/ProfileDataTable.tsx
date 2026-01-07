@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ParsedSnowProfile, SnowSample, GrainTypeLabel } from '@/types/snowProfile';
 import { IACS_COLORS, HUMIDITY_CODES, GRAIN_TYPE_INFO } from '@/constants/iacs';
 import { formatDateTime } from '@/utils/coordinates';
@@ -31,6 +32,7 @@ const calculateCumulativeHeights = (samples: SnowSample[]) => {
 };
 
 const ProfileDataTable: React.FC<ProfileDataTableProps> = ({ profile }) => {
+  const { t, i18n } = useTranslation();
   const { samples } = profile.properties;
 
   const samplesWithCumulative = useMemo(
@@ -38,12 +40,18 @@ const ProfileDataTable: React.FC<ProfileDataTableProps> = ({ profile }) => {
     [samples]
   );
 
+  // Get locale for time formatting
+  const locale = i18n.language === 'en' ? 'en-US' : 
+                 i18n.language === 'de' ? 'de-DE' : 
+                 i18n.language === 'fr' ? 'fr-FR' : 
+                 i18n.language === 'it' ? 'it-IT' : 'es-ES';
+
   return (
     <div className="bg-card rounded-lg border border-border h-full flex flex-col">
       <div className="px-4 py-3 border-b border-border">
         <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">
           <div className="h-1.5 w-1.5 rounded-full bg-primary" />
-          Datos de las Muestras
+          {t('table.title')}
         </h3>
       </div>
 
@@ -51,15 +59,15 @@ const ProfileDataTable: React.FC<ProfileDataTableProps> = ({ profile }) => {
         <Table>
           <TableHeader>
             <TableRow className="hover:bg-transparent">
-              <TableHead className="w-[50px] text-center">#</TableHead>
-              <TableHead className="text-center">Altura (cm)</TableHead>
-              <TableHead className="text-center">Acum. (cm)</TableHead>
-              <TableHead className="text-center">Temp. (°C)</TableHead>
-              <TableHead className="text-center">Resist.</TableHead>
-              <TableHead className="text-center">Tipo Grano</TableHead>
-              <TableHead className="text-center">Ø (mm)</TableHead>
-              <TableHead className="text-center">Humedad</TableHead>
-              <TableHead className="text-center">Hora</TableHead>
+              <TableHead className="w-[50px] text-center">{t('table.number')}</TableHead>
+              <TableHead className="text-center">{t('table.height')}</TableHead>
+              <TableHead className="text-center">{t('table.cumulative')}</TableHead>
+              <TableHead className="text-center">{t('table.temperature')}</TableHead>
+              <TableHead className="text-center">{t('table.resistance')}</TableHead>
+              <TableHead className="text-center">{t('table.grainType')}</TableHead>
+              <TableHead className="text-center">{t('table.diameter')}</TableHead>
+              <TableHead className="text-center">{t('table.humidity')}</TableHead>
+              <TableHead className="text-center">{t('table.time')}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -129,7 +137,7 @@ const ProfileDataTable: React.FC<ProfileDataTableProps> = ({ profile }) => {
                     )}
                   </TableCell>
                   <TableCell className="text-center text-xs text-muted-foreground">
-                    {new Date(sample.timestamp).toLocaleTimeString('es-ES', {
+                    {new Date(sample.timestamp).toLocaleTimeString(locale, {
                       hour: '2-digit',
                       minute: '2-digit',
                     })}

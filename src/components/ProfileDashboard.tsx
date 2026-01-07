@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { ParsedSnowProfile } from '@/types/snowProfile';
 import ProfileMap from '@/components/ProfileMap';
 import StratigraphicChart from '@/components/StratigraphicChart';
@@ -12,6 +13,8 @@ interface ProfileDashboardProps {
 }
 
 const ProfileDashboard: React.FC<ProfileDashboardProps> = ({ profile }) => {
+  const { t } = useTranslation();
+
   if (!profile) {
     return (
       <div className="flex flex-col items-center justify-center h-full py-16 text-center">
@@ -19,10 +22,10 @@ const ProfileDashboard: React.FC<ProfileDashboardProps> = ({ profile }) => {
           <Snowflake className="h-10 w-10 text-muted-foreground" />
         </div>
         <h2 className="text-xl font-semibold text-foreground mb-2">
-          Selecciona un perfil
+          {t('dashboard.selectProfile')}
         </h2>
         <p className="text-muted-foreground max-w-md">
-          Importa archivos GeoJSON de perfiles nivológicos y selecciona uno de la lista para visualizar sus datos.
+          {t('dashboard.selectProfileDescription')}
         </p>
       </div>
     );
