@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Upload, Mountain, Trash2 } from 'lucide-react';
+import { Upload, Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   AlertDialog,
@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import { toast } from '@/hooks/use-toast';
 import LanguageSelector from '@/components/LanguageSelector';
+import logoImage from '@/assets/logo.png';
 
 interface HeaderProps {
   onImport: (files: FileList) => Promise<number>;
@@ -52,18 +53,20 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount }) =
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-header">
       <div className="container flex h-16 items-center justify-between px-4">
         {/* Logo and Title */}
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <Mountain className="h-6 w-6" />
-          </div>
+          <img 
+            src={logoImage} 
+            alt="SnowStrat" 
+            className="h-10 w-10 rounded-lg"
+          />
           <div className="flex flex-col">
-            <h1 className="text-lg font-semibold leading-tight text-foreground">
+            <h1 className="text-lg font-semibold leading-tight text-white">
               {t('header.title')}
             </h1>
-            <p className="text-xs text-muted-foreground">
+            <p className="text-xs text-white/70">
               {t('header.subtitle')}
             </p>
           </div>
@@ -72,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount }) =
         {/* Actions */}
         <div className="flex items-center gap-3">
           {profileCount > 0 && (
-            <span className="text-sm text-muted-foreground">
+            <span className="text-sm text-white/70">
               {profileCount} {profileCount !== 1 ? t('header.profilesPlural') : t('header.profiles')}
             </span>
           )}
