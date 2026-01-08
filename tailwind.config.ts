@@ -84,6 +84,8 @@ export default {
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",
         info: "hsl(var(--info))",
+        // Header
+        header: "hsl(var(--header))",
       },
       borderRadius: {
         lg: "var(--radius)",

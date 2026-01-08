@@ -19,7 +19,10 @@
     --popover-foreground: 215 28% 17%;
 
     /* Primary: Deep alpine blue */
-    --primary: 215 65% 35%;
+    --primary: 220 75% 35%;
+    
+    /* Header specific */
+    --header: 220 75% 35%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary: Light frost */
