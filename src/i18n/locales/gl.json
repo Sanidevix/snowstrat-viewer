@@ -76,5 +76,12 @@
     "fr": "Français",
     "de": "Deutsch",
     "it": "Italiano"
+  },
+  "export": {
+    "pdf": "Exportar PDF",
+    "successTitle": "PDF xerado",
+    "successDescription": "O informe PDF descargouse correctamente.",
+    "errorTitle": "Erro ao exportar",
+    "errorDescription": "Non se puido xerar o PDF. Téntao de novo."
   }
 }

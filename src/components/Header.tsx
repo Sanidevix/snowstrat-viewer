@@ -15,15 +15,18 @@ import {
 } from '@/components/ui/alert-dialog';
 import { toast } from '@/hooks/use-toast';
 import LanguageSelector from '@/components/LanguageSelector';
+import ExportPDFButton from '@/components/ExportPDFButton';
 import logoImage from '@/assets/logo.png';
+import { ParsedSnowProfile } from '@/types/snowProfile';
 
 interface HeaderProps {
   onImport: (files: FileList) => Promise<number>;
   onClearAll: () => void;
   profileCount: number;
+  selectedProfile: ParsedSnowProfile | null;
 }
 
-const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount }) => {
+const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount, selectedProfile }) => {
   const { t } = useTranslation();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -96,6 +99,8 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount }) =
             <Upload className="h-4 w-4" />
             {t('header.importButton')}
           </Button>
+
+          <ExportPDFButton profile={selectedProfile} />
 
           <LanguageSelector />
 
