@@ -76,5 +76,12 @@
     "fr": "Français",
     "de": "Deutsch",
     "it": "Italiano"
+  },
+  "export": {
+    "pdf": "PDF exportieren",
+    "successTitle": "PDF erstellt",
+    "successDescription": "Der PDF-Bericht wurde erfolgreich heruntergeladen.",
+    "errorTitle": "Exportfehler",
+    "errorDescription": "PDF konnte nicht erstellt werden. Bitte versuchen Sie es erneut."
   }
 }

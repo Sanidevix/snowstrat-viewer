@@ -76,5 +76,12 @@
     "fr": "Français",
     "de": "Deutsch",
     "it": "Italiano"
+  },
+  "export": {
+    "pdf": "Esportar PDF",
+    "successTitle": "PDF xeneráu",
+    "successDescription": "L'informe PDF descargóse correutamente.",
+    "errorTitle": "Error al esportar",
+    "errorDescription": "Nun se pudo xenerar el PDF. Inténtalo otra vegada."
   }
 }

@@ -23,6 +23,7 @@ const Index: React.FC = () => {
         onImport={importProfiles}
         onClearAll={clearProfiles}
         profileCount={profiles.length}
+        selectedProfile={selectedProfile}
       />
 
       <div className="flex-1 flex overflow-hidden">

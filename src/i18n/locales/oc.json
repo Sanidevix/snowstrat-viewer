@@ -76,5 +76,12 @@
     "fr": "Français",
     "de": "Deutsch",
     "it": "Italiano"
+  },
+  "export": {
+    "pdf": "Exportar PDF",
+    "successTitle": "PDF generat",
+    "successDescription": "Eth rapòrt PDF s'a descargat corrèctament.",
+    "errorTitle": "Error en exportar",
+    "errorDescription": "Non s'a pogut generar eth PDF. Tornatz-ac a provar."
   }
 }

@@ -76,5 +76,12 @@
     "fr": "Français",
     "de": "Deutsch",
     "it": "Italiano"
+  },
+  "export": {
+    "pdf": "PDF Esportatu",
+    "successTitle": "PDF sortuta",
+    "successDescription": "PDF txostena ondo deskargatu da.",
+    "errorTitle": "Esportazio errorea",
+    "errorDescription": "Ezin izan da PDF-a sortu. Saiatu berriro."
   }
 }

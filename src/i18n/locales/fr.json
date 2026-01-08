@@ -76,5 +76,12 @@
     "fr": "Français",
     "de": "Deutsch",
     "it": "Italiano"
+  },
+  "export": {
+    "pdf": "Exporter PDF",
+    "successTitle": "PDF généré",
+    "successDescription": "Le rapport PDF a été téléchargé avec succès.",
+    "errorTitle": "Erreur d'export",
+    "errorDescription": "Impossible de générer le PDF. Veuillez réessayer."
   }
 }
