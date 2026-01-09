@@ -1,16 +1,8 @@
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 import { ParsedSnowProfile, SnowSample, GrainTypeLabel, IACS_COLORS } from '@/types/snowProfile';
 import { GRAIN_TYPE_INFO, HUMIDITY_CODES } from '@/constants/iacs';
 import { formatCoordinates, formatAltitude } from '@/utils/coordinates';
-
-// Extend jsPDF with autoTable
-declare module 'jspdf' {
-  interface jsPDF {
-    autoTable: (options: any) => jsPDF;
-    lastAutoTable: { finalY: number };
-  }
-}
 
 // IACS grain symbols as SVG paths
 const GRAIN_SYMBOLS: Record<GrainTypeLabel, string> = {
@@ -158,22 +150,24 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
 
   const coordsDecimal = formatCoordinates(lat, lon, 'decimal');
   const coordsDMS = formatCoordinates(lat, lon, 'dms');
+  const coordsDecimalStr = `${coordsDecimal.lat}, ${coordsDecimal.lng}`;
+  const coordsDMSStr = `${coordsDMS.lat}, ${coordsDMS.lng}`;
   const altitudeStr = formatAltitude(alt);
 
   // Metadata table
-  pdf.autoTable({
+  autoTable(pdf, {
     startY: currentY,
     head: [],
     body: [
       [
         { content: t.location, styles: { fontStyle: 'bold' } },
-        name || coordsDecimal,
+        name || coordsDecimalStr,
         { content: t.altitude, styles: { fontStyle: 'bold' } },
         altitudeStr,
       ],
       [
         { content: 'Coordenadas', styles: { fontStyle: 'bold' } },
-        coordsDMS,
+        coordsDMSStr,
         { content: t.orientation, styles: { fontStyle: 'bold' } },
         '—',
       ],
@@ -203,7 +197,7 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
     margin: { left: margin, right: margin },
   });
 
-  currentY = pdf.lastAutoTable.finalY + 5;
+  currentY = (pdf as any).lastAutoTable.finalY + 5;
 
   // Weather observations
   if (observations) {
@@ -356,7 +350,7 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
     ];
   });
 
-  pdf.autoTable({
+  autoTable(pdf, {
     startY: chartStartY,
     head: [[t.layerLimits, t.grainType, t.size, t.hardness, t.humidity, t.density]],
     body: tableData,
@@ -391,7 +385,7 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
     },
   });
 
-  currentY = Math.max(chartStartY + chartHeight + 15, pdf.lastAutoTable.finalY + 5);
+  currentY = Math.max(chartStartY + chartHeight + 15, (pdf as any).lastAutoTable.finalY + 5);
 
   // === IACS LEGEND ===
   pdf.setFontSize(8);
