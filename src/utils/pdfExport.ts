@@ -219,16 +219,15 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
     currentY += 18;
   }
 
-  currentY += 3;
+  currentY += 5;
 
   // === COMBINED CHART SECTION (Chart + Legend side by side) ===
-  const chartHeight = 100;
-  const chartWidth = contentWidth * 0.65;
-  const legendWidth = contentWidth * 0.32;
+  const chartHeight = 110;
+  const chartWidth = contentWidth * 0.62;
   const chartX = margin;
-  const legendX = margin + chartWidth + 5;
+  const legendX = margin + chartWidth + 18;
 
-  const chartStartY = currentY;
+  const chartStartY = currentY + 8;
 
   // Draw chart background
   pdf.setDrawColor(200, 200, 200);
@@ -357,19 +356,19 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
     legendItemY += legendItemHeight;
   });
 
-  currentY = chartStartY + chartHeight + 10;
+  currentY = chartStartY + chartHeight + 15;
 
   // === STRATIGRAPHIC TABLE (Full width at bottom) ===
   const tableData = layerData.map(sample => {
-    const grainInfo = GRAIN_TYPE_INFO[sample.grainTypeLabel as GrainTypeLabel];
-    const hardnessInfo = HARDNESS_LABELS[sample.resistanceLabel] || { label: sample.resistanceLabel, symbol: '' };
     const humidityLabel = sample.humidity ? HUMIDITY_CODES[sample.humidity] || sample.humidity : '—';
+    // Use same format as web table: resistance value + label in parentheses
+    const hardnessDisplay = `${sample.resistance} (${sample.resistanceLabel})`;
 
     return [
       `${sample.prevCumulativeHeight}-${sample.cumulativeHeight}`,
       sample.grainTypeLabel,
       sample.diameter ? `${sample.diameter}` : '—',
-      hardnessInfo.label,
+      hardnessDisplay,
       humidityLabel,
       '—', // Density placeholder
     ];
