@@ -3,6 +3,7 @@ import autoTable from 'jspdf-autotable';
 import { ParsedSnowProfile, SnowSample, GrainTypeLabel, IACS_COLORS } from '@/types/snowProfile';
 import { GRAIN_TYPE_INFO, HUMIDITY_CODES } from '@/constants/iacs';
 import { formatCoordinates, formatAltitude } from '@/utils/coordinates';
+import { getLogoBase64 } from '@/assets/logoBase64';
 
 // IACS grain symbols as SVG paths
 const GRAIN_SYMBOLS: Record<GrainTypeLabel, string> = {
@@ -113,22 +114,28 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
 
   // === HEADER SECTION ===
   pdf.setFillColor(...primaryColor);
-  pdf.rect(0, 0, pageWidth, 35, 'F');
+  pdf.rect(0, 0, pageWidth, 28, 'F');
+
+  // Add logo
+  try {
+    const logoData = await getLogoBase64();
+    if (logoData) {
+      pdf.addImage(logoData, 'PNG', margin, 4, 20, 20);
+    }
+  } catch (e) {
+    console.log('Could not add logo to PDF');
+  }
 
   pdf.setTextColor(255, 255, 255);
-  pdf.setFontSize(18);
+  pdf.setFontSize(16);
   pdf.setFont('helvetica', 'bold');
-  pdf.text(t.stratigraphicProfile, margin, 15);
+  pdf.text(t.stratigraphicProfile, margin + 25, 12);
 
-  pdf.setFontSize(10);
+  pdf.setFontSize(9);
   pdf.setFont('helvetica', 'normal');
-  pdf.text(`${t.soundingChart} / ${t.tempProfile}`, margin, 23);
+  pdf.text('SnowStrat Viewer', margin + 25, 19);
 
-  // Logo placeholder on the right
-  pdf.setFontSize(8);
-  pdf.text('SnowStrat Viewer', pageWidth - margin - 30, 15);
-
-  currentY = 45;
+  currentY = 34;
 
   // === METADATA SECTION ===
   pdf.setTextColor(...textColor);
@@ -154,7 +161,7 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
   const coordsDMSStr = `${coordsDMS.lat}, ${coordsDMS.lng}`;
   const altitudeStr = formatAltitude(alt);
 
-  // Metadata table
+  // Metadata table with tighter spacing
   autoTable(pdf, {
     startY: currentY,
     head: [],
@@ -187,17 +194,17 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
       ],
     ],
     theme: 'plain',
-    styles: { fontSize: 8, cellPadding: 2 },
+    styles: { fontSize: 7, cellPadding: 1 },
     columnStyles: {
-      0: { cellWidth: 25 },
-      1: { cellWidth: contentWidth / 2 - 25 },
-      2: { cellWidth: 25 },
-      3: { cellWidth: contentWidth / 2 - 25 },
+      0: { cellWidth: 22 },
+      1: { cellWidth: contentWidth / 2 - 22 },
+      2: { cellWidth: 22 },
+      3: { cellWidth: contentWidth / 2 - 22 },
     },
     margin: { left: margin, right: margin },
   });
 
-  currentY = (pdf as any).lastAutoTable.finalY + 5;
+  currentY = (pdf as any).lastAutoTable.finalY + 2;
 
   // Weather observations
   if (observations) {
@@ -212,21 +219,14 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
     currentY += 18;
   }
 
-  currentY += 5;
+  currentY += 3;
 
-  // === COMBINED CHART SECTION ===
+  // === COMBINED CHART SECTION (Chart + Legend side by side) ===
   const chartHeight = 100;
-  const chartWidth = contentWidth * 0.55;
-  const tableWidth = contentWidth * 0.42;
+  const chartWidth = contentWidth * 0.65;
+  const legendWidth = contentWidth * 0.32;
   const chartX = margin;
-  const tableX = margin + chartWidth + 5;
-
-  // Chart title
-  pdf.setFontSize(10);
-  pdf.setFont('helvetica', 'bold');
-  pdf.text(t.soundingChart, chartX, currentY);
-  pdf.text(t.layerTable, tableX, currentY);
-  currentY += 5;
+  const legendX = margin + chartWidth + 5;
 
   const chartStartY = currentY;
 
@@ -334,7 +334,32 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
     pdf.text(`${temp}`, tempScale(temp), chartStartY - 4, { align: 'center' });
   });
 
-  // === STRATIGRAPHIC TABLE ===
+  // === IACS LEGEND (Right side of chart) ===
+  pdf.setFontSize(7);
+  pdf.setFont('helvetica', 'bold');
+  pdf.setTextColor(...textColor);
+  pdf.text('Leyenda IACS:', legendX, chartStartY + 3);
+
+  let legendItemY = chartStartY + 8;
+  const legendItemHeight = 6;
+
+  (Object.keys(IACS_COLORS) as GrainTypeLabel[]).forEach((grainType) => {
+    const color = hexToRgb(IACS_COLORS[grainType]);
+    const info = GRAIN_TYPE_INFO[grainType];
+
+    pdf.setFillColor(...color);
+    pdf.rect(legendX, legendItemY, 4, 4, 'F');
+    pdf.setFontSize(6);
+    pdf.setFont('helvetica', 'normal');
+    pdf.setTextColor(...textColor);
+    pdf.text(`${grainType}: ${info?.name || grainType}`, legendX + 6, legendItemY + 3);
+
+    legendItemY += legendItemHeight;
+  });
+
+  currentY = chartStartY + chartHeight + 10;
+
+  // === STRATIGRAPHIC TABLE (Full width at bottom) ===
   const tableData = layerData.map(sample => {
     const grainInfo = GRAIN_TYPE_INFO[sample.grainTypeLabel as GrainTypeLabel];
     const hardnessInfo = HARDNESS_LABELS[sample.resistanceLabel] || { label: sample.resistanceLabel, symbol: '' };
@@ -351,27 +376,27 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
   });
 
   autoTable(pdf, {
-    startY: chartStartY,
+    startY: currentY,
     head: [[t.layerLimits, t.grainType, t.size, t.hardness, t.humidity, t.density]],
     body: tableData,
     theme: 'striped',
-    styles: { fontSize: 6, cellPadding: 1.5, valign: 'middle' },
+    styles: { fontSize: 7, cellPadding: 1.5, valign: 'middle' },
     headStyles: {
       fillColor: primaryColor,
       textColor: [255, 255, 255],
       fontStyle: 'bold',
-      fontSize: 6,
+      fontSize: 7,
     },
     columnStyles: {
-      0: { cellWidth: tableWidth * 0.18 },
-      1: { cellWidth: tableWidth * 0.15, halign: 'center' },
-      2: { cellWidth: tableWidth * 0.12, halign: 'center' },
-      3: { cellWidth: tableWidth * 0.22 },
-      4: { cellWidth: tableWidth * 0.18 },
-      5: { cellWidth: tableWidth * 0.15, halign: 'center' },
+      0: { cellWidth: contentWidth * 0.14 },
+      1: { cellWidth: contentWidth * 0.12, halign: 'center' },
+      2: { cellWidth: contentWidth * 0.10, halign: 'center' },
+      3: { cellWidth: contentWidth * 0.20 },
+      4: { cellWidth: contentWidth * 0.22 },
+      5: { cellWidth: contentWidth * 0.12, halign: 'center' },
     },
-    margin: { left: tableX, right: margin },
-    tableWidth: tableWidth,
+    margin: { left: margin, right: margin },
+    tableWidth: contentWidth,
     didDrawCell: (data: any) => {
       // Draw IACS color indicator for grain type column
       if (data.section === 'body' && data.column.index === 1) {
@@ -385,42 +410,7 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
     },
   });
 
-  currentY = Math.max(chartStartY + chartHeight + 15, (pdf as any).lastAutoTable.finalY + 5);
-
-  // === IACS LEGEND ===
-  pdf.setFontSize(8);
-  pdf.setFont('helvetica', 'bold');
-  pdf.setTextColor(...textColor);
-  pdf.text('Leyenda IACS - Tipos de Grano:', margin, currentY);
-  currentY += 5;
-
-  const legendCols = 3;
-  const legendItemWidth = contentWidth / legendCols;
-  let legendX = margin;
-  let legendY = currentY;
-  let colIndex = 0;
-
-  (Object.keys(IACS_COLORS) as GrainTypeLabel[]).forEach((grainType, index) => {
-    const color = hexToRgb(IACS_COLORS[grainType]);
-    const info = GRAIN_TYPE_INFO[grainType];
-
-    pdf.setFillColor(...color);
-    pdf.rect(legendX, legendY, 4, 4, 'F');
-    pdf.setFontSize(7);
-    pdf.setTextColor(...textColor);
-    pdf.text(`${grainType}: ${info?.name || grainType}`, legendX + 6, legendY + 3);
-
-    colIndex++;
-    if (colIndex >= legendCols) {
-      colIndex = 0;
-      legendX = margin;
-      legendY += 6;
-    } else {
-      legendX += legendItemWidth;
-    }
-  });
-
-  currentY = legendY + 10;
+  currentY = (pdf as any).lastAutoTable.finalY + 5;
 
   // === STABILITY TESTS SECTION ===
   if (currentY + 30 > pageHeight - margin) {
