@@ -5,6 +5,7 @@ import ProfileMap from '@/components/ProfileMap';
 import StratigraphicChart from '@/components/StratigraphicChart';
 import ProfileMetadata from '@/components/ProfileMetadata';
 import ProfileDataTable from '@/components/ProfileDataTable';
+import CTDataTable from '@/components/CTDataTable';
 import GrainLegend from '@/components/GrainLegend';
 import { Snowflake } from 'lucide-react';
 
@@ -30,6 +31,8 @@ const ProfileDashboard: React.FC<ProfileDashboardProps> = ({ profile }) => {
       </div>
     );
   }
+
+  const hasCTSamples = profile.properties.ctSamples && profile.properties.ctSamples.length > 0;
 
   return (
     <div className="h-full overflow-auto p-4 space-y-4 animate-fade-in">
@@ -61,6 +64,13 @@ const ProfileDashboard: React.FC<ProfileDashboardProps> = ({ profile }) => {
           <ProfileDataTable profile={profile} />
         </div>
       </div>
+
+      {/* CT Samples Table - Only show if there are CT samples */}
+      {hasCTSamples && (
+        <div className="h-[200px]">
+          <CTDataTable profile={profile} />
+        </div>
+      )}
     </div>
   );
 };
