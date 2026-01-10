@@ -36,41 +36,37 @@ const ProfileDashboard: React.FC<ProfileDashboardProps> = ({ profile }) => {
 
   return (
     <div className="h-full overflow-auto p-4 space-y-4 animate-fade-in">
-      {/* Top row: Map and Chart */}
+      {/* Row 1: Metadata + Map */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {/* Section A: Map */}
-        <div className="h-[350px]">
-          <ProfileMap profile={profile} />
-        </div>
-
-        {/* Section B: Stratigraphic Chart */}
-        <div className="h-[350px]">
-          <StratigraphicChart profile={profile} />
-        </div>
-      </div>
-
-      {/* Legend */}
-      <GrainLegend />
-
-      {/* Bottom row: Metadata and Data Table */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        {/* Section C: Metadata */}
-        <div className="lg:col-span-1">
+        <div className="h-[280px]">
           <ProfileMetadata profile={profile} />
         </div>
-
-        {/* Section D: Data Table */}
-        <div className="lg:col-span-2 h-[300px]">
-          <ProfileDataTable profile={profile} />
+        <div className="h-[280px]">
+          <ProfileMap profile={profile} />
         </div>
       </div>
 
-      {/* CT Samples Table - Only show if there are CT samples */}
-      {hasCTSamples && (
-        <div className="h-[200px]">
-          <CTDataTable profile={profile} />
+      {/* Row 2: Chart + Legend */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <div className="lg:col-span-3 h-[350px]">
+          <StratigraphicChart profile={profile} />
         </div>
-      )}
+        <div className="lg:col-span-1">
+          <GrainLegend />
+        </div>
+      </div>
+
+      {/* Row 3: Sample Data + CT Test */}
+      <div className={`grid grid-cols-1 gap-4 ${hasCTSamples ? 'lg:grid-cols-3' : ''}`}>
+        <div className={`h-[300px] ${hasCTSamples ? 'lg:col-span-2' : ''}`}>
+          <ProfileDataTable profile={profile} />
+        </div>
+        {hasCTSamples && (
+          <div className="lg:col-span-1 h-[300px]">
+            <CTDataTable profile={profile} />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
