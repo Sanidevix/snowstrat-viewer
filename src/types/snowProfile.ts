@@ -35,6 +35,7 @@ export interface SnowProfileProperties {
   name: string;
   observer: string;
   observations?: string;
+  temperature?: number | null; // Ambient temperature in °C
   timestamp: string;
   createdAt: string;
   updatedAt: string;

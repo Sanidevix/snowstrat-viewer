@@ -38,6 +38,7 @@
     "name": "Nombre",
     "observer": "Observador",
     "dateTime": "Fecha y Hora",
+    "temperature": "Temperatura",
     "coordinates": "Coordenadas",
     "dms": "GMS",
     "decimal": "Decimal",
