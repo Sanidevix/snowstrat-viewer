@@ -14,6 +14,21 @@ export interface SnowSample {
   timestamp: string; // ISO timestamp
 }
 
+// CT (Compression Test) sample interface
+export interface CTSample {
+  id: number;
+  number: number;
+  taps: number;
+  depth: number;
+  fractureQuality: string; // Q1, Q2, Q3
+  grainType: number;
+  grainTypeLabel: GrainTypeLabel;
+  diameter: number | null;
+  additionalInfo: string | null;
+  formattedResult: string; // Pre-formatted result string
+  timestamp: string;
+}
+
 export type GrainTypeLabel = 'PP' | 'DF' | 'RG' | 'FC' | 'DH' | 'MF' | 'IF' | 'SH' | 'GP';
 
 export interface SnowProfileProperties {
@@ -26,6 +41,8 @@ export interface SnowProfileProperties {
   totalHeight: number; // Total snow height in cm
   sampleCount: number;
   samples: SnowSample[];
+  ctSampleCount?: number;
+  ctSamples?: CTSample[];
 }
 
 export interface SnowProfileGeometry {

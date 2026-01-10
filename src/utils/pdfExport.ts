@@ -411,14 +411,57 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
 
   currentY = (pdf as any).lastAutoTable.finalY + 5;
 
-  // === STABILITY TESTS SECTION ===
+  // === CT TESTS TABLE (if available) ===
+  const ctSamples = properties.ctSamples || [];
+  
+  if (ctSamples.length > 0) {
+    if (currentY + 40 > pageHeight - margin) {
+      pdf.addPage();
+      currentY = margin;
+    }
+
+    pdf.setFontSize(9);
+    pdf.setFont('helvetica', 'bold');
+    pdf.setTextColor(...textColor);
+    pdf.text('Test de Compresión (CT)', margin, currentY + 5);
+    currentY += 8;
+
+    const ctTableData = ctSamples.map(sample => [
+      sample.number.toString(),
+      sample.formattedResult,
+    ]);
+
+    autoTable(pdf, {
+      startY: currentY,
+      head: [['#', 'Resultado']],
+      body: ctTableData,
+      theme: 'striped',
+      styles: { fontSize: 7, cellPadding: 1.5, valign: 'middle' },
+      headStyles: {
+        fillColor: primaryColor,
+        textColor: [255, 255, 255],
+        fontStyle: 'bold',
+        fontSize: 7,
+      },
+      columnStyles: {
+        0: { cellWidth: 15, halign: 'center' },
+        1: { cellWidth: contentWidth - 15 },
+      },
+      margin: { left: margin, right: margin },
+      tableWidth: contentWidth,
+    });
+
+    currentY = (pdf as any).lastAutoTable.finalY + 5;
+  }
+
+  // === STABILITY TESTS SECTION (placeholder for other tests) ===
   if (currentY + 30 > pageHeight - margin) {
     pdf.addPage();
     currentY = margin;
   }
 
   pdf.setFillColor(...lightGray);
-  pdf.rect(margin, currentY, contentWidth, 25, 'F');
+  pdf.rect(margin, currentY, contentWidth, 20, 'F');
   pdf.setFontSize(9);
   pdf.setFont('helvetica', 'bold');
   pdf.setTextColor(...textColor);
@@ -426,10 +469,9 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
 
   pdf.setFontSize(7);
   pdf.setFont('helvetica', 'normal');
-  pdf.text('CT (Test de Compresión): _______________________________________________', margin + 3, currentY + 13);
-  pdf.text('ECT (Extended Column Test): ___________________________________________', margin + 3, currentY + 19);
+  pdf.text('ECT (Extended Column Test): ___________________________________________', margin + 3, currentY + 13);
 
-  currentY += 30;
+  currentY += 25;
 
   // === FOOTER ===
   pdf.setFontSize(7);

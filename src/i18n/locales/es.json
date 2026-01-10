@@ -64,6 +64,10 @@
     "noNewTitle": "Sin perfiles nuevos",
     "noNewDescription": "No se encontraron perfiles válidos o ya estaban importados."
   },
+  "ctTable": {
+    "title": "Test de Compresión (CT)",
+    "result": "Resultado"
+  },
   "languages": {
     "es": "Español",
     "gl": "Galego",
