@@ -1,12 +1,11 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import Header from '@/components/Header';
-import ProfileList from '@/components/ProfileList';
+import AppSidebar from '@/components/AppSidebar';
 import ProfileDashboard from '@/components/ProfileDashboard';
 import { useProfiles } from '@/hooks/useProfiles';
 
 const Index: React.FC = () => {
-  const { t } = useTranslation();
   const {
     profiles,
     selectedProfile,
@@ -18,38 +17,34 @@ const Index: React.FC = () => {
   } = useProfiles();
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <Header
-        onImport={importProfiles}
-        onClearAll={clearProfiles}
-        profileCount={profiles.length}
-        selectedProfile={selectedProfile}
-      />
+    <SidebarProvider defaultOpen={true}>
+      <div className="min-h-screen flex flex-col w-full">
+        <Header
+          onImport={importProfiles}
+          onClearAll={clearProfiles}
+          profileCount={profiles.length}
+          selectedProfile={selectedProfile}
+        />
 
-      <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar - Profile List */}
-        <aside className="w-80 border-r border-border bg-sidebar flex-shrink-0 flex flex-col">
-          <div className="px-4 py-3 border-b border-border">
-            <h2 className="text-sm font-semibold text-sidebar-foreground">
-              {t('sidebar.importedProfiles')}
-            </h2>
-          </div>
-          <div className="flex-1 overflow-hidden">
-            <ProfileList
-              profiles={profiles}
-              selectedProfileId={selectedProfileId}
-              onSelect={setSelectedProfileId}
-              onDelete={deleteProfile}
-            />
-          </div>
-        </aside>
+        <div className="flex-1 flex w-full overflow-hidden">
+          <AppSidebar
+            profiles={profiles}
+            selectedProfileId={selectedProfileId}
+            onSelect={setSelectedProfileId}
+            onDelete={deleteProfile}
+          />
 
-        {/* Main Content - Dashboard */}
-        <main className="flex-1 overflow-hidden bg-background">
-          <ProfileDashboard profile={selectedProfile} />
-        </main>
+          {/* Main Content - Dashboard */}
+          <main className="flex-1 overflow-hidden bg-background relative">
+            {/* Mobile Sidebar Trigger */}
+            <div className="absolute top-2 left-2 z-10 md:hidden">
+              <SidebarTrigger />
+            </div>
+            <ProfileDashboard profile={selectedProfile} />
+          </main>
+        </div>
       </div>
-    </div>
+    </SidebarProvider>
   );
 };
 
