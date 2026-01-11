@@ -387,27 +387,32 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
             const heightValue = depthMatch ? parseInt(depthMatch[1], 10) : ct.depth;
             const yPos = yScale(heightValue);
             
+            // Position after the height axis labels (axis is at chartWidth - margin.right + 10, labels end around +40)
+            const lineStartX = chartWidth - margin.right + 45;
+            const lineEndX = chartWidth - margin.right + 55;
+            const textStartX = chartWidth - margin.right + 60;
+            
             return (
               <g key={`ct-${ct.id || index}`}>
                 {/* Marker line connecting to the chart */}
                 <line
-                  x1={chartWidth - margin.right + 5}
+                  x1={lineStartX}
                   y1={yPos}
-                  x2={chartWidth - margin.right + 15}
+                  x2={lineEndX}
                   y2={yPos}
                   stroke="hsl(var(--destructive))"
                   strokeWidth={1.5}
                 />
                 {/* CT result marker */}
                 <circle
-                  cx={chartWidth - margin.right + 5}
+                  cx={lineStartX}
                   cy={yPos}
                   r={3}
                   fill="hsl(var(--destructive))"
                 />
                 {/* CT result text */}
                 <text
-                  x={chartWidth - margin.right + 20}
+                  x={textStartX}
                   y={yPos + 4}
                   fontSize={8}
                   fill="hsl(var(--destructive))"
