@@ -28,7 +28,7 @@ const calculateLayerData = (samples: SnowSample[]) => {
 
 const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
   const { t } = useTranslation();
-  const { samples, totalHeight } = profile.properties;
+  const { samples, totalHeight, ctSamples } = profile.properties;
   const svgRef = useRef<SVGSVGElement>(null);
 
   // Zoom state
@@ -38,8 +38,8 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
   const [panStart, setPanStart] = useState({ x: 0, y: 0 });
 
   const chartHeight = 400;
-  const chartWidth = 500;
-  const margin = { top: 40, right: 60, bottom: 40, left: 60 };
+  const chartWidth = 600; // Increased width to accommodate CT results
+  const margin = { top: 40, right: 160, bottom: 40, left: 60 }; // Increased right margin for CT labels
   const innerWidth = chartWidth - margin.left - margin.right;
   const innerHeight = chartHeight - margin.top - margin.bottom;
 
@@ -378,6 +378,45 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
             stroke="hsl(var(--chart-axis))"
             strokeWidth={1}
           />
+
+          {/* CT Test Results - displayed to the right of the height axis */}
+          {ctSamples && ctSamples.length > 0 && ctSamples.map((ct, index) => {
+            // CT depth is from the surface, so we calculate height from bottom
+            const heightFromBottom = totalHeight - ct.depth;
+            const yPos = yScale(heightFromBottom);
+            
+            return (
+              <g key={`ct-${ct.id || index}`}>
+                {/* Marker line connecting to the chart */}
+                <line
+                  x1={chartWidth - margin.right + 5}
+                  y1={yPos}
+                  x2={chartWidth - margin.right + 15}
+                  y2={yPos}
+                  stroke="hsl(var(--destructive))"
+                  strokeWidth={1.5}
+                />
+                {/* CT result marker */}
+                <circle
+                  cx={chartWidth - margin.right + 5}
+                  cy={yPos}
+                  r={3}
+                  fill="hsl(var(--destructive))"
+                />
+                {/* CT result text */}
+                <text
+                  x={chartWidth - margin.right + 20}
+                  y={yPos + 4}
+                  fontSize={8}
+                  fill="hsl(var(--destructive))"
+                  fontWeight={500}
+                  className="font-mono"
+                >
+                  {ct.formattedResult}
+                </text>
+              </g>
+            );
+          })}
         </svg>
       </div>
     </div>
