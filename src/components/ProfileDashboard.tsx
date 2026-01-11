@@ -35,34 +35,34 @@ const ProfileDashboard: React.FC<ProfileDashboardProps> = ({ profile }) => {
   const hasCTSamples = profile.properties.ctSamples && profile.properties.ctSamples.length > 0;
 
   return (
-    <div className="h-full overflow-auto p-4 space-y-4 animate-fade-in">
+    <div className="h-full overflow-auto p-3 sm:p-4 space-y-3 sm:space-y-4 animate-fade-in">
       {/* Row 1: Metadata + Map */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div className="h-[280px]">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 sm:gap-4">
+        <div className="min-h-[280px]">
           <ProfileMetadata profile={profile} />
         </div>
-        <div className="h-[280px]">
+        <div className="h-[250px] sm:h-[280px]">
           <ProfileMap profile={profile} />
         </div>
       </div>
 
       {/* Row 2: Chart + Legend */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        <div className="lg:col-span-3 h-[350px]">
+      <div className="grid grid-cols-1 xl:grid-cols-4 gap-3 sm:gap-4">
+        <div className="xl:col-span-3 h-[300px] sm:h-[350px]">
           <StratigraphicChart profile={profile} />
         </div>
-        <div className="lg:col-span-1">
+        <div className="xl:col-span-1">
           <GrainLegend />
         </div>
       </div>
 
       {/* Row 3: Sample Data + CT Test */}
-      <div className={`grid grid-cols-1 gap-4 ${hasCTSamples ? 'lg:grid-cols-3' : ''}`}>
-        <div className={`h-[300px] ${hasCTSamples ? 'lg:col-span-2' : ''}`}>
+      <div className={`grid grid-cols-1 gap-3 sm:gap-4 ${hasCTSamples ? 'xl:grid-cols-3' : ''}`}>
+        <div className={`min-h-[250px] sm:min-h-[300px] ${hasCTSamples ? 'xl:col-span-2' : ''}`}>
           <ProfileDataTable profile={profile} />
         </div>
         {hasCTSamples && (
-          <div className="lg:col-span-1 h-[300px]">
+          <div className="xl:col-span-1 min-h-[250px] sm:min-h-[300px]">
             <CTDataTable profile={profile} />
           </div>
         )}

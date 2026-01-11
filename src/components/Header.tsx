@@ -18,7 +18,7 @@ import LanguageSelector from '@/components/LanguageSelector';
 import ExportPDFButton from '@/components/ExportPDFButton';
 import logoImage from '@/assets/logo.png';
 import { ParsedSnowProfile } from '@/types/snowProfile';
-
+import { SidebarTrigger } from '@/components/ui/sidebar';
 interface HeaderProps {
   onImport: (files: FileList) => Promise<number>;
   onClearAll: () => void;
@@ -57,9 +57,12 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount, sel
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/20 bg-header">
-      <div className="container flex h-16 items-center justify-between px-4">
+      <div className="flex h-16 items-center justify-between px-4">
         {/* Logo and Title */}
         <div className="flex items-center gap-3">
+          {/* Desktop Sidebar Trigger */}
+          <SidebarTrigger className="hidden md:flex text-white hover:bg-white/10" />
+          
           <img 
             src={logoImage} 
             alt="SnowStrat" 
@@ -69,16 +72,16 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount, sel
             <h1 className="text-lg font-semibold leading-tight text-white">
               {t('header.title')}
             </h1>
-            <p className="text-xs text-white/70">
+            <p className="text-xs text-white/70 hidden sm:block">
               {t('header.subtitle')}
             </p>
           </div>
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {profileCount > 0 && (
-            <span className="text-sm text-white/70">
+            <span className="text-sm text-white/70 hidden lg:block">
               {profileCount} {profileCount !== 1 ? t('header.profilesPlural') : t('header.profiles')}
             </span>
           )}
@@ -95,9 +98,10 @@ const Header: React.FC<HeaderProps> = ({ onImport, onClearAll, profileCount, sel
           <Button
             onClick={() => fileInputRef.current?.click()}
             className="gap-2"
+            size="sm"
           >
             <Upload className="h-4 w-4" />
-            {t('header.importButton')}
+            <span className="hidden sm:inline">{t('header.importButton')}</span>
           </Button>
 
           <ExportPDFButton profile={selectedProfile} />
