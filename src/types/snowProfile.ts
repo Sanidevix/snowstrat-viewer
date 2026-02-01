@@ -19,6 +19,7 @@ export interface CTSample {
   id: number;
   number: number;
   taps: number;
+  reference: 'top_down' | 'bottom_up'; // Reference direction for depth
   depth: number;
   fractureQuality: string; // Q1, Q2, Q3
   grainType: number;
