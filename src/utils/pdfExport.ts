@@ -8,14 +8,15 @@ import { getLogoBase64 } from '@/assets/logoBase64';
 // IACS grain symbols as SVG paths
 const GRAIN_SYMBOLS: Record<GrainTypeLabel, string> = {
   PP: 'M12,2 L12,22 M2,12 L22,12 M4,4 L20,20 M20,4 L4,20', // Star/precipitation
+  PPgp: 'M12,2 A10,10 0 1,0 12,22 A10,10 0 1,0 12,2 M8,8 L16,16 M16,8 L8,16', // Graupel
   DF: 'M6,6 L18,6 L18,18 L6,18 Z M8,8 L16,16 M16,8 L8,16', // Fragmented
   RG: 'M12,2 A10,10 0 1,0 12,22 A10,10 0 1,0 12,2', // Circle
   FC: 'M12,2 L22,12 L12,22 L2,12 Z', // Diamond/facet
   DH: 'M12,2 L18,8 L18,16 L12,22 L6,16 L6,8 Z', // Cup/hexagon
   MF: 'M12,2 A10,10 0 1,0 12,22 A10,10 0 1,0 12,2 M7,12 A5,5 0 1,0 17,12', // Double circle
+  MFcr: 'M2,6 L22,6 L22,10 L2,10 Z M6,10 L6,18 M12,10 L12,18 M18,10 L18,18', // Melt-freeze crust
   IF: 'M2,2 L22,2 L22,22 L2,22 Z', // Solid rectangle
   SH: 'M12,2 L14,10 L22,12 L14,14 L12,22 L10,14 L2,12 L10,10 Z', // Star
-  GP: 'M12,2 A10,10 0 1,0 12,22 A10,10 0 1,0 12,2 M8,8 L16,16 M16,8 L8,16', // Circle with X
 };
 
 // Hardness scale labels
