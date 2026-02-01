@@ -5,53 +5,58 @@ import { GrainTypeLabel } from '@/types/snowProfile';
 // IACS standard colors for grain types
 export const IACS_COLORS: Record<GrainTypeLabel, string> = {
   PP: '#00FF00', // Precipitation Particles - Bright Green
+  PPgp: '#00FF00', // Precipitation Particles - Bright Green
   DF: '#228B22', // Decomposing and Fragmented - Forest Green
   RG: '#FFB6C1', // Rounded Grains - Light Pink
   FC: '#ADD8E6', // Faceted Crystals - Light Blue
   DH: '#0000FF', // Depth Hoar - Blue
   MF: '#FF0000', // Melt Forms - Red
+  MFcr: '#BDBDBD', // Costra de rehielo
   IF: '#8B0000', // Ice Formations - Dark Red
   SH: '#FF00FF', // Surface Hoar - Magenta
-  GP: '#FFFF00', // Graupel - Yellow
 };
 
 // Grain type descriptions
 export const GRAIN_TYPE_INFO: Record<GrainTypeLabel, { name: string; description: string }> = {
   PP: {
-    name: 'Partículas de Precipitación',
+    name: '+ Nieve reciente',
     description: 'Cristales de nieve recién caída, conservan su forma original',
   },
+  PPgp: {
+    name: '⛇ Nieve granulada',
+    description: 'Cristales de nieve recién caída, con forma granulada',
+  },
   DF: {
-    name: 'Fragmentados/Descompuestos',
+    name: '/ Partículas reconocibles',
     description: 'Cristales parcialmente descompuestos o fragmentados',
   },
   RG: {
-    name: 'Granos Redondeados',
+    name: '• Grano fino',
     description: 'Granos pequeños y redondeados, típicos de nieve vieja',
   },
   FC: {
-    name: 'Cristales Facetados',
+    name: '□ Granos Caras planas',
     description: 'Cristales con caras planas, formados por gradiente de temperatura',
   },
   DH: {
-    name: 'Escarcha de Profundidad',
+    name: '∧ Cubiletes',
     description: 'Cristales grandes en forma de copa, muy débiles',
   },
   MF: {
-    name: 'Formas de Fusión',
+    name: '○ Grano redondo',
     description: 'Granos afectados por ciclos de fusión-rehielo',
   },
+  MFcr: {
+    name: '⚭ Costra de rehielo',
+    description: 'Capa superficial endurecida por el proceso de rehielo',
+  },
   IF: {
-    name: 'Formaciones de Hielo',
+    name: '▮ Capa de hielo',
     description: 'Capas o costras de hielo',
   },
   SH: {
-    name: 'Escarcha Superficial',
+    name: 'v Escarcha',
     description: 'Cristales formados en la superficie por sublimación',
-  },
-  GP: {
-    name: 'Granizo Blando',
-    description: 'Partículas esféricas opacas, tipo granizo pequeño',
   },
 };
 
