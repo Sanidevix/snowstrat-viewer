@@ -29,7 +29,7 @@ export interface CTSample {
   timestamp: string;
 }
 
-export type GrainTypeLabel = 'PP' | 'DF' | 'RG' | 'FC' | 'DH' | 'MF' | 'IF' | 'SH' | 'GP';
+export type GrainTypeLabel = 'PP' | 'PPgp' | 'DF' | 'RG' | 'FC' | 'DH' | 'MF' | 'IF' | 'SH' | 'MFcr';
 
 export interface SnowProfileProperties {
   name: string;
@@ -66,27 +66,29 @@ export interface ParsedSnowProfile extends SnowProfile {
 // IACS color mapping for grain types
 export const IACS_COLORS: Record<GrainTypeLabel, string> = {
   PP: '#00FF00', // Precipitation Particles
+  PPgp: '#00FF00', // Precipitation Particles
   DF: '#228B22', // Decomposing and Fragmented
   RG: '#FFB6C1', // Rounded Grains
   FC: '#ADD8E6', // Faceted Crystals
   DH: '#0000FF', // Depth Hoar
   MF: '#FF0000', // Melt Forms
+  MFcr: '#BDBDBD', // Costra de rehielo
   IF: '#8B0000', // Ice Formations
   SH: '#FF00FF', // Surface Hoar
-  GP: '#FFFF00', // Graupel
 };
 
 // Grain type full names
 export const GRAIN_TYPE_NAMES: Record<GrainTypeLabel, string> = {
-  PP: 'Precipitation Particles',
-  DF: 'Decomposing/Fragmented',
-  RG: 'Rounded Grains',
-  FC: 'Faceted Crystals',
-  DH: 'Depth Hoar',
-  MF: 'Melt Forms',
-  IF: 'Ice Formations',
-  SH: 'Surface Hoar',
-  GP: 'Graupel',
+  PP: '+ Nieve reciente',
+  PPgp: '⛇ Nieve granulada',
+  DF: '/ Partículas reconocibles',
+  RG: '• Grano fino',
+  FC: '□ Granos Caras planas',
+  DH: '∧ Cubiletes',
+  MF: '○ Grano redondo',
+  MFcr: '⚭ Costra de rehielo',
+  IF: '▮ Capa de hielo',
+  SH: 'v Escarcha',
 };
 
 // Resistance labels and values
