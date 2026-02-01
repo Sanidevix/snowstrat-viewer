@@ -381,10 +381,12 @@ const StratigraphicChart: React.FC<StratigraphicChartProps> = ({ profile }) => {
 
           {/* CT Test Results - displayed to the right of the height axis */}
           {ctSamples && ctSamples.length > 0 && ctSamples.map((ct, index) => {
-            // Parse the height from formattedResult: CT#Qn@↓zzzFD Infos
-            // Extract zzz (the number after ↓)
-            const depthMatch = ct.formattedResult.match(/↓(\d+)/);
-            const heightValue = depthMatch ? parseInt(depthMatch[1], 10) : ct.depth;
+            // Calculate height based on reference direction:
+            // - top_down (↓): depth from surface, height = totalHeight - depth
+            // - bottom_up (↑): depth from bottom, height = depth
+            const heightValue = ct.reference === 'top_down' 
+              ? totalHeight - ct.depth 
+              : ct.depth;
             const yPos = yScale(heightValue);
             
             // Position after the height axis labels (axis is at chartWidth - margin.right + 10, labels end around +40)
