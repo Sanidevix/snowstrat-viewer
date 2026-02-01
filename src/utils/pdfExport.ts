@@ -426,26 +426,47 @@ export const generateSnowProfilePDF = async (options: PDFExportOptions): Promise
     pdf.text('Test de Compresión (CT)', margin, currentY + 5);
     currentY += 8;
 
-    const ctTableData = ctSamples.map(sample => [
-      sample.number.toString(),
-      sample.formattedResult,
-    ]);
+    const ctTableData = ctSamples.map(sample => {
+      // Calculate the height based on reference direction
+      const heightValue = sample.reference === 'top_down' 
+        ? totalHeight - sample.depth 
+        : sample.depth;
+      
+      return [
+        sample.number.toString(),
+        sample.taps.toString(),
+        sample.fractureQuality,
+        sample.reference === 'top_down' ? `↓${sample.depth}` : `↑${sample.depth}`,
+        `${heightValue} cm`,
+        sample.grainTypeLabel,
+        sample.diameter ? `${sample.diameter} mm` : '—',
+        sample.additionalInfo || '—',
+        sample.formattedResult,
+      ];
+    });
 
     autoTable(pdf, {
       startY: currentY,
-      head: [['#', 'Resultado']],
+      head: [['#', 'Golpes', 'Calidad', 'Ref.', 'Altura', 'Grano', 'Ø', 'Info', 'Resultado']],
       body: ctTableData,
       theme: 'striped',
-      styles: { fontSize: 7, cellPadding: 1.5, valign: 'middle' },
+      styles: { fontSize: 6, cellPadding: 1, valign: 'middle' },
       headStyles: {
         fillColor: primaryColor,
         textColor: [255, 255, 255],
         fontStyle: 'bold',
-        fontSize: 7,
+        fontSize: 6,
       },
       columnStyles: {
-        0: { cellWidth: 15, halign: 'center' },
-        1: { cellWidth: contentWidth - 15 },
+        0: { cellWidth: 8, halign: 'center' },
+        1: { cellWidth: 12, halign: 'center' },
+        2: { cellWidth: 12, halign: 'center' },
+        3: { cellWidth: 12, halign: 'center' },
+        4: { cellWidth: 14, halign: 'center' },
+        5: { cellWidth: 12, halign: 'center' },
+        6: { cellWidth: 12, halign: 'center' },
+        7: { cellWidth: 30 },
+        8: { cellWidth: contentWidth - 112 },
       },
       margin: { left: margin, right: margin },
       tableWidth: contentWidth,

@@ -49,7 +49,7 @@ const AppSidebar: React.FC<AppSidebarProps> = ({
       <SidebarContent>
         <SidebarGroup>
           {!isCollapsed && (
-            <SidebarGroupLabel className="text-xs text-muted-foreground px-3">
+            <SidebarGroupLabel className="text-xs text-muted-foreground px-3 pt-3 pb-2">
               {profiles.length} {profiles.length !== 1 ? t('header.profilesPlural') : t('header.profiles')}
             </SidebarGroupLabel>
           )}
