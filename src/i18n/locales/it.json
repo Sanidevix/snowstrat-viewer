@@ -83,5 +83,14 @@
     "successDescription": "Il report PDF è stato scaricato correttamente.",
     "errorTitle": "Errore di esportazione",
     "errorDescription": "Impossibile generare il PDF. Riprova."
+  },
+  "ai": {
+    "subtitle": "Assistente di Nivologia",
+    "analyze": "Analizzare",
+    "analyzing": "Analisi in corso...",
+    "error": "Errore di connessione a SnowAI. Riprova.",
+    "errorRateLimit": "Troppe richieste. Attendi un momento e riprova.",
+    "errorPayment": "Crediti insufficienti. Aggiungi crediti per continuare.",
+    "disclaimer": "SnowAI è un'intelligenza artificiale. Le sue risposte sono indicative e non sostituiscono il giudizio professionale né le guide ufficiali di sicurezza in montagna (AEMET, EAWS)."
   }
 }

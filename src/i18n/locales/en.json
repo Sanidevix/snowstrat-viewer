@@ -88,5 +88,14 @@
     "successDescription": "The PDF report has been downloaded successfully.",
     "errorTitle": "Export Error",
     "errorDescription": "Could not generate the PDF. Please try again."
+  },
+  "ai": {
+    "subtitle": "Snow Science Assistant",
+    "analyze": "Analyze",
+    "analyzing": "Analyzing...",
+    "error": "Error connecting to SnowAI. Please try again.",
+    "errorRateLimit": "Too many requests. Please wait a moment and try again.",
+    "errorPayment": "Insufficient credits. Please add credits to continue.",
+    "disclaimer": "SnowAI is an artificial intelligence. Its responses are for guidance only and do not replace professional judgment or official mountain safety guidelines (AEMET, EAWS)."
   }
 }

@@ -83,5 +83,14 @@
     "successDescription": "PDF txostena ondo deskargatu da.",
     "errorTitle": "Esportazio errorea",
     "errorDescription": "Ezin izan da PDF-a sortu. Saiatu berriro."
+  },
+  "ai": {
+    "subtitle": "Niboloxia Laguntzailea",
+    "analyze": "Aztertu",
+    "analyzing": "Aztertzen...",
+    "error": "Errorea SnowAI-rekin konektatzerakoan. Saiatu berriro.",
+    "errorRateLimit": "Eskaera gehiegi. Itxaron une bat eta saiatu berriro.",
+    "errorPayment": "Kreditu nahikorik ez. Gehitu kredituak jarraitzeko.",
+    "disclaimer": "SnowAI adimen artifiziala da. Bere erantzunak orientagarriak dira eta ez dute ordezkatzen judizio profesionala ezta mendiko segurtasun gidalerro ofizialak (AEMET, EAWS)."
   }
 }

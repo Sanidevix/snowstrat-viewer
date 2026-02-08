@@ -83,5 +83,14 @@
     "successDescription": "Eth rapòrt PDF s'a descargat corrèctament.",
     "errorTitle": "Error en exportar",
     "errorDescription": "Non s'a pogut generar eth PDF. Tornatz-ac a provar."
+  },
+  "ai": {
+    "subtitle": "Assistent de Nivologia",
+    "analyze": "Analizar",
+    "analyzing": "Analizant...",
+    "error": "Error en connectar damb SnowAI. Tornatz-ac a provar.",
+    "errorRateLimit": "Tròpi de solicituds. Esperatz un moment e tornatz-ac a provar.",
+    "errorPayment": "Crèdits insuficients. Ahustatz crèdits tà contunhar.",
+    "disclaimer": "SnowAI ei ua intelligéncia artificiala. Es sues respondes son orientatives e non substituïssen eth jutjament professionau ni es guïes oficiales de seguretat en montanha (AEMET, EAWS)."
   }
 }

@@ -83,5 +83,14 @@
     "successDescription": "L'informe PDF descargóse correutamente.",
     "errorTitle": "Error al esportar",
     "errorDescription": "Nun se pudo xenerar el PDF. Inténtalo otra vegada."
+  },
+  "ai": {
+    "subtitle": "Asistente de Nivoloxía",
+    "analyze": "Analizar",
+    "analyzing": "Analizando...",
+    "error": "Error al coneutar con SnowAI. Inténtalo otra vegada.",
+    "errorRateLimit": "Demasiaes solicitúes. Espera un momentu ya inténtalo otra vegada.",
+    "errorPayment": "Créditos insuficientes. Amiesta créditos pa siguir.",
+    "disclaimer": "SnowAI ye una intelixencia artificial. Les sos respuestes son orientatives y nun sustitúin el xuiciu profesional nin les guíes oficiales de seguridá en montaña (AEMET, EAWS)."
   }
 }
