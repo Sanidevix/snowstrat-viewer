@@ -1,0 +1,4 @@
+project_id = "uaquzzqznmvuvahqderj"
+
+[functions.snow-ai]
+verify_jwt = false

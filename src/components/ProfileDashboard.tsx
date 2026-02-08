@@ -7,6 +7,7 @@ import ProfileMetadata from '@/components/ProfileMetadata';
 import ProfileDataTable from '@/components/ProfileDataTable';
 import CTDataTable from '@/components/CTDataTable';
 import GrainLegend from '@/components/GrainLegend';
+import SnowAI from '@/components/SnowAI';
 import { Snowflake } from 'lucide-react';
 
 interface ProfileDashboardProps {
@@ -67,6 +68,9 @@ const ProfileDashboard: React.FC<ProfileDashboardProps> = ({ profile }) => {
           </div>
         )}
       </div>
+
+      {/* Row 4: SnowAI Assistant */}
+      <SnowAI profile={profile} />
     </div>
   );
 };
