@@ -35,7 +35,7 @@ const SnowAI: React.FC<SnowAIProps> = ({ profile }) => {
   // Auto-scroll to bottom
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+      scrollRef.current.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
     }
   }, [messages]);
 
@@ -231,8 +231,8 @@ const SnowAI: React.FC<SnowAIProps> = ({ profile }) => {
       {/* Content area */}
       {isExpanded && (messages.length > 0 || error) && (
         <div className="flex flex-col">
-          <ScrollArea className="max-h-[300px] sm:max-h-[400px]">
-            <div ref={scrollRef} className="p-3 sm:p-4 space-y-3">
+          <div ref={scrollRef} className="max-h-[300px] sm:max-h-[400px] overflow-y-auto scrollbar-thin">
+            <div className="p-3 sm:p-4 space-y-3">
               {error && (
                 <div className="flex items-start gap-2 p-3 rounded-md bg-destructive/10 text-destructive text-sm">
                   <AlertTriangle className="h-4 w-4 mt-0.5 shrink-0" />
@@ -254,7 +254,7 @@ const SnowAI: React.FC<SnowAIProps> = ({ profile }) => {
                 </div>
               ))}
             </div>
-          </ScrollArea>
+          </div>
 
           {/* Disclaimer */}
           <div className="px-3 sm:px-4 py-2 border-t border-border bg-muted/20">
