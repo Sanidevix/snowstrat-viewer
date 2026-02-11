@@ -512,6 +512,20 @@ The application aims to:
 | 🏔️ **Lauegi** | [lauegi.report](https://lauegi.report) | Aran-Pyrenees Avalanche Bulletin |
 | ⛷️ **Montaña Segura** | [montanasegura.com](https://montanasegura.com) | Mountain accident prevention |
 
+✒️ Authorship & Credits
+This MVP was conceptualized and developed by Iván de Vicente Sánchez, utilizing Vibe Coding methodologies and the Lovable tool.
+
+If you use this code for learning, improvement, or non-commercial purposes, please keep this attribution visible.
+
+⚠️ Commercial & Usage License
+This software is licensed under the Polyform Noncommercial 1.0.0 license.
+
+Permitted Use: Personal, educational, research, and proof-of-concept.
+
+Prohibited Use: Commercial exploitation, sale, or use in profit-making production environments is strictly prohibited without the express consent of the author.
+
+Interested in commercial use? If you would like to implement this solution in your company or monetize it, let's talk: 📧 sanidevix@gmail.com
+
 ## 💝 Acknowledgments
 
 This project would not have been possible without the inspiration, teachings, and support of extraordinary people:
