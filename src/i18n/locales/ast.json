@@ -92,5 +92,11 @@
     "errorRateLimit": "Demasiaes solicitúes. Espera un momentu ya inténtalo otra vegada.",
     "errorPayment": "Créditos insuficientes. Amiesta créditos pa siguir.",
     "disclaimer": "SnowAI ye una intelixencia artificial. Les sos respuestes son orientatives y nun sustitúin el xuiciu profesional nin les guíes oficiales de seguridá en montaña (AEMET, EAWS)."
+  },
+  "footer": {
+    "license": "Usu non comercial permitíu. Tolos derechos comerciales reservaos baxo Llicencia Polyform Noncommercial.",
+    "localData": "Datos almacenaos llocalmente",
+    "userManual": "Manual d'Usuariu",
+    "documentation": "Documentación"
   }
 }

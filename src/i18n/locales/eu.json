@@ -92,5 +92,11 @@
     "errorRateLimit": "Eskaera gehiegi. Itxaron une bat eta saiatu berriro.",
     "errorPayment": "Kreditu nahikorik ez. Gehitu kredituak jarraitzeko.",
     "disclaimer": "SnowAI adimen artifiziala da. Bere erantzunak orientagarriak dira eta ez dute ordezkatzen judizio profesionala ezta mendiko segurtasun gidalerro ofizialak (AEMET, EAWS)."
+  },
+  "footer": {
+    "license": "Erabilera ez-komertziala baimenduta. Eskubide komertzial guztiak erreserbatuta Polyform Noncommercial Lizentziapean.",
+    "localData": "Datuak lokalki gordeta",
+    "userManual": "Erabiltzaile Gida",
+    "documentation": "Dokumentazioa"
   }
 }

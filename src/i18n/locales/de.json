@@ -92,5 +92,11 @@
     "errorRateLimit": "Zu viele Anfragen. Bitte warten Sie einen Moment und versuchen Sie es erneut.",
     "errorPayment": "Unzureichende Guthaben. Bitte laden Sie Guthaben auf.",
     "disclaimer": "SnowAI ist eine künstliche Intelligenz. Die Antworten dienen nur zur Orientierung und ersetzen weder professionelles Urteil noch offizielle Bergsicherheitsrichtlinien (AEMET, EAWS)."
+  },
+  "footer": {
+    "license": "Nichtkommerzielle Nutzung erlaubt. Alle kommerziellen Rechte vorbehalten unter Polyform Noncommercial Lizenz.",
+    "localData": "Daten lokal gespeichert",
+    "userManual": "Benutzerhandbuch",
+    "documentation": "Dokumentation"
   }
 }

@@ -3,6 +3,7 @@ import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import Header from '@/components/Header';
 import AppSidebar from '@/components/AppSidebar';
 import ProfileDashboard from '@/components/ProfileDashboard';
+import Footer from '@/components/Footer';
 import { useProfiles } from '@/hooks/useProfiles';
 
 const Index: React.FC = () => {
@@ -43,6 +44,7 @@ const Index: React.FC = () => {
             <ProfileDashboard profile={selectedProfile} />
           </main>
         </div>
+        <Footer />
       </div>
     </SidebarProvider>
   );
