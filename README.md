@@ -230,6 +230,15 @@ La aplicación busca:
 | 🏔️ **Lauegi** | [lauegi.report](https://lauegi.report) | Boletín de aludes Aran-Pirineos |
 | ⛷️ **Montaña Segura** | [montanasegura.com](https://montanasegura.com) | Prevención de accidentes en montaña |
 
+
+## 🛡️ Licencia y Uso
+Este proyecto es un MVP protegido bajo la licencia **Polyform Noncommercial 1.0.0**.
+
+✅ Se permite: Uso personal, pruebas, aprendizaje y mejoras compartidas.
+❌ Se prohíbe: Uso comercial, venta del software o servicios basados en este código sin autorización.
+
+Para licencias comerciales o colaboraciones profesionales, escríbeme a: sanidevix@gmail.com
+
 ## 💝 Agradecimientos
 
 Este proyecto no habría sido posible sin la inspiración, enseñanzas y apoyo de personas extraordinarias:
