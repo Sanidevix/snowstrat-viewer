@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
       <footer className="w-full border-t border-border bg-background">
         <div className="px-4 py-3 space-y-1 text-center text-xs text-muted-foreground">
           <p>
-            SnowStrat Field © 2026 – Iván de Vicente Sánchez – {t('footer.license')}
+            SnowStrat Field © 2026 – {t('footer.license')}
           </p>
           <p className="flex items-center justify-center gap-1 flex-wrap">
             <span>PWA Offline-First</span>
