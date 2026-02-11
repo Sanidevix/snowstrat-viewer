@@ -97,5 +97,11 @@
     "errorRateLimit": "Too many requests. Please wait a moment and try again.",
     "errorPayment": "Insufficient credits. Please add credits to continue.",
     "disclaimer": "SnowAI is an artificial intelligence. Its responses are for guidance only and do not replace professional judgment or official mountain safety guidelines (AEMET, EAWS)."
+  },
+  "footer": {
+    "license": "Noncommercial use permitted. All commercial rights reserved under Polyform Noncommercial License.",
+    "localData": "Data stored locally",
+    "userManual": "User Manual",
+    "documentation": "Documentation"
   }
 }
