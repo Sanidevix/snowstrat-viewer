@@ -512,12 +512,12 @@ The application aims to:
 | 🏔️ **Lauegi** | [lauegi.report](https://lauegi.report) | Aran-Pyrenees Avalanche Bulletin |
 | ⛷️ **Montaña Segura** | [montanasegura.com](https://montanasegura.com) | Mountain accident prevention |
 
-✒️ Authorship & Credits
+## ✒️ Authorship & Credits
 This MVP was conceptualized and developed by Iván de Vicente Sánchez, utilizing Vibe Coding methodologies and the Lovable tool.
 
 If you use this code for learning, improvement, or non-commercial purposes, please keep this attribution visible.
 
-⚠️ Commercial & Usage License
+## ⚠️ Commercial & Usage License
 This software is licensed under the Polyform Noncommercial 1.0.0 license.
 
 Permitted Use: Personal, educational, research, and proof-of-concept.
