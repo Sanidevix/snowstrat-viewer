@@ -103,5 +103,110 @@
     "localData": "Datos almacenados localmente",
     "userManual": "Manual de Usuario",
     "documentation": "Documentación"
+  },
+  "manual": {
+    "title": "Manual de Usuario",
+    "introTitle": "1. Introducción",
+    "introText": "SnowStrat Viewer es una aplicación web progresiva (PWA) diseñada para visualizar y analizar perfiles estratigráficos de nieve a partir de archivos GeoJSON estandarizados según el modelo AEMET. La aplicación funciona completamente offline y almacena los datos de forma local en el navegador.",
+    "workflowTitle": "2. Flujo de Trabajo",
+    "importTitle": "2.1 Importación de Perfiles",
+    "importSteps": [
+      "Haz clic en el botón «Importar GeoJSON» en la cabecera de la aplicación.",
+      "Se abrirá un selector de archivos del sistema operativo.",
+      "Selecciona uno o varios archivos .geojson que contengan perfiles nivológicos.",
+      "Los perfiles se cargarán automáticamente y aparecerán en la barra lateral izquierda.",
+      "Si no había ningún perfil seleccionado, se seleccionará automáticamente el último perfil importado.",
+      "Aparecerá una notificación confirmando cuántos perfiles se han importado correctamente."
+    ],
+    "viewTitle": "2.2 Visualización del Perfil",
+    "viewIntro": "Una vez importado y seleccionado un perfil, el panel principal muestra las siguientes secciones:",
+    "view_metadata_title": "Metadatos del Perfil",
+    "view_metadata_items": [
+      "Nombre del perfil y observador.",
+      "Fecha y hora de la observación.",
+      "Temperatura ambiente registrada.",
+      "Coordenadas geográficas (en formato GMS y Decimal).",
+      "Altitud del punto de observación.",
+      "Altura total del manto nivoso y número de muestras.",
+      "Observaciones adicionales del observador."
+    ],
+    "view_map_title": "Mapa de Ubicación",
+    "view_map_items": [
+      "Mapa interactivo que muestra la localización exacta del perfil.",
+      "Permite hacer zoom y desplazarse por el mapa."
+    ],
+    "view_chart_title": "Gráfico Estratigráfico",
+    "view_chart_items": [
+      "Eje vertical (Y): Altura en centímetros, con la superficie en la parte superior.",
+      "Eje horizontal: Resistencia (N) representada con barras coloreadas según el tipo de grano IACS.",
+      "Línea de temperatura superpuesta con puntos en el centro de cada estrato.",
+      "Tests de Compresión (CT): Marcadores visuales posicionados según su referencia (superficie o suelo).",
+      "Controles de zoom para ampliar y reducir la vista del gráfico."
+    ],
+    "view_legend_title": "Leyenda IACS",
+    "view_legend_items": [
+      "Muestra los tipos de grano según la clasificación internacional IACS con sus colores y símbolos correspondientes."
+    ],
+    "view_dataTable_title": "Tabla de Datos de Muestras",
+    "view_dataTable_items": [
+      "Número de muestra (#), Altura (cm), Altura acumulada (cm).",
+      "Temperatura (°C), Resistencia, Tipo de grano.",
+      "Diámetro (mm), Humedad, Hora de la toma."
+    ],
+    "view_ctTable_title": "Tabla de Tests de Compresión (CT)",
+    "view_ctTable_items": [
+      "Si el perfil incluye tests CT, se muestra una tabla adicional con los resultados de cada test."
+    ],
+    "aiTitle": "2.3 Análisis con SnowAI",
+    "aiSteps": [
+      "Con un perfil seleccionado, desplázate hasta la sección SnowAI en la parte inferior del panel.",
+      "Pulsa el botón «Analizar» para enviar los datos del perfil al asistente de inteligencia artificial.",
+      "SnowAI generará un análisis que incluye: estabilidad del manto, capas débiles, metamorfismo e interpretación de tests CT.",
+      "La respuesta se muestra con formato enriquecido y scroll automático para respuestas largas."
+    ],
+    "aiDisclaimer": "SnowAI es una herramienta orientativa. Sus respuestas no sustituyen el juicio profesional ni las guías oficiales de seguridad en montaña (AEMET, EAWS).",
+    "managementTitle": "3. Gestión de Perfiles",
+    "sidebarTitle": "3.1 Barra Lateral de Perfiles",
+    "sidebarText": "La barra lateral izquierda muestra todos los perfiles importados con su nombre, altitud y número de muestras.",
+    "sidebarActions": [
+      "Haz clic sobre cualquier perfil en la lista para seleccionarlo y visualizar sus datos.",
+      "Cada perfil tiene un botón de eliminación que permite borrarlo de forma individual."
+    ],
+    "deleteAllTitle": "3.2 Eliminar Todos los Perfiles",
+    "deleteAllSteps": [
+      "Haz clic en el botón de eliminar todos (icono de papelera) en la cabecera, junto al contador de perfiles.",
+      "Aparecerá un diálogo de confirmación con el mensaje: «¿Eliminar todos los perfiles?».",
+      "Confirma la acción pulsando «Eliminar todos» o cancela con «Cancelar».",
+      "Esta acción es irreversible y eliminará todos los perfiles importados."
+    ],
+    "languageTitle": "4. Selección de Idioma",
+    "languageSteps": [
+      "En la cabecera de la aplicación, localiza el selector de idioma (icono de bandera).",
+      "Haz clic para desplegar la lista de idiomas disponibles.",
+      "Selecciona el idioma deseado. La interfaz se actualizará inmediatamente."
+    ],
+    "languageList": [
+      "Español", "Galego", "Asturianu", "Euskara", "Català",
+      "Aranés", "Andorrà", "English", "Français", "Deutsch", "Italiano"
+    ],
+    "exportTitle": "5. Exportación a PDF",
+    "exportSteps": [
+      "Con un perfil seleccionado, haz clic en el botón «Exportar PDF» en la cabecera.",
+      "Se generará un informe técnico en formato PDF con: metadatos, gráfico estratigráfico, leyenda IACS, tabla de muestras y tests CT.",
+      "El archivo PDF se descargará automáticamente en tu dispositivo."
+    ],
+    "offlineTitle": "6. Funcionamiento Offline",
+    "offlineText": "SnowStrat Viewer es una PWA (Progressive Web App) que funciona sin conexión a internet:",
+    "offlineItems": [
+      "Los perfiles importados se almacenan localmente en el navegador.",
+      "Todas las funcionalidades de visualización y gestión están disponibles offline.",
+      "La función SnowAI requiere conexión a internet para el análisis."
+    ],
+    "infoTitle": "7. Información Adicional",
+    "infoItems": [
+      "Licencia: Uso no comercial permitido bajo Licencia Polyform Noncommercial.",
+      "Datos: Todos los datos se almacenan exclusivamente en el navegador del usuario. No se envían datos a servidores externos excepto para el análisis de SnowAI.",
+      "Autor: Iván de Vicente Sánchez © 2026."
+    ]
   }
 }
